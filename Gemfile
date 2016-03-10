@@ -48,3 +48,5 @@ group :development do
   gem 'spring'
 end
 
+#Heroku's gem
+gem 'rails_12factor', group: :production
