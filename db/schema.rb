@@ -11,9 +11,77 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160510030217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "address"
+    t.string   "zipcode"
+    t.string   "complement"
+    t.string   "state"
+    t.string   "city"
+    t.string   "country"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "certificates", force: :cascade do |t|
+    t.string   "type"
+    t.integer  "term_number"
+    t.integer  "sheet_number"
+    t.string   "book"
+    t.date     "emission_date"
+    t.string   "federation_unit"
+    t.string   "notarys_office"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "identity_documents", force: :cascade do |t|
+    t.integer  "identity_number"
+    t.date     "dispatch_date"
+    t.string   "federation_unit"
+    t.string   "dispatcher_organ"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string   "name"
+    t.string   "genre"
+    t.date     "birthdate"
+    t.string   "race"
+    t.string   "phone"
+    t.string   "cellphone"
+    t.string   "naturalness"
+    t.string   "nationality"
+    t.integer  "address_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "responsibles", force: :cascade do |t|
+    t.integer  "person_id"
+    t.string   "kinship"
+    t.integer  "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.integer  "person_id"
+    t.integer  "nis_number"
+    t.integer  "certificate_id"
+    t.integer  "identify_document_id"
+    t.string   "cpf"
+    t.date     "entry_date"
+    t.string   "special_needs"
+    t.string   "teaching_step"
+    t.string   "photo_url"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
 end
