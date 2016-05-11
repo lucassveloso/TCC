@@ -1,0 +1,14 @@
+<% if @student_search_results.empty? %>
+  <div class="panel panel-default">
+    <div class="row panel-body">
+      <h3><%= "Sua pesquisa não encontrou resultados" %></h3>
+    </div>
+  </div>
+<% end %>
+<ul class="list-group col-lg-12">
+  <% @student_search_results.each do |student| %>
+    <li class="list-group-item">
+      <a href="students/<%=student.id%>"><h3 class="student-title"><%= student.person.name %></h3></a>
+    </li>
+  <% end %>
+</ul>

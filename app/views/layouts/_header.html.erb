@@ -1,0 +1,8 @@
+<div class="search-bar">
+    <%= form_tag(students_path, :method => "get", :class => "form-inline", :id => "form_search", :enforce_utf8 => false) do %>
+    <%= text_field_tag :text_search, params[:text_search], :placeholder => "EX: João", :class => "form-control" %>
+    <button type="submit" class="btn btn-primary">
+      <span>Pesquisar</span>
+    </button>
+    <% end %>
+</div>

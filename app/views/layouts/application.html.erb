@@ -8,7 +8,20 @@
 </head>
 <body>
 
-<%= yield %>
-
+  <div class="board ">
+    <div class="col-lg-2 menu">
+      <%= render 'layouts/menu'%>
+    </div>
+    <div>
+      <div class="header">
+        <%= render 'layouts/header'%>
+      </div>
+      <div class="pages">
+        <section class="min-height-pages">
+          <%= yield %>
+        </section>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
