@@ -8,4 +8,9 @@ class Student < ActiveRecord::Base
   validates :certificate, presence: true
   validates :identity_document, presence: true
   validates :cpf, presence: true
+
+  include PgSearch
+  pg_search_scope :search,  :against =>  [:nis_number],
+                            :associated_against => { :person => [:name] },
+                            :ignoring => :accents
 end
