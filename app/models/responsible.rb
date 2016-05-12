@@ -1,7 +1,7 @@
 class Responsible < ActiveRecord::Base
   belongs_to :person, dependent: :destroy
-  belongs_to :student
+  has_and_belongs_to_many :students
   validates :person, presence: true
   validates :kinship, presence: true
-  validates :student, presence: true
+  validates :students, presence: true
 end
