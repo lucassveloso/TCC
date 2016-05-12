@@ -17,6 +17,7 @@ gem 'autoprefixer-rails'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-mocks'
   gem 'capybara'
   gem 'selenium-webdriver'
   gem "codeclimate-test-reporter"
