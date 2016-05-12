@@ -3,11 +3,11 @@ require 'rails_helper'
 describe Responsible, type: :model do
   describe 'validation' do
     before :each do
-      @responsible = Responsible.new(person_id: 1, kinship: "Mother", student_id: 1)
+      @responsible = Responsible.new(person: Person.new, kinship: "Mother", students: [Student.new])
     end
 
     it 'should require a person' do
-      @responsible.person_id = nil
+      @responsible.person = nil
       expect(@responsible).to_not be_valid
     end
 
@@ -16,8 +16,8 @@ describe Responsible, type: :model do
       expect(@responsible).to_not be_valid
     end
 
-    it 'should require a student' do
-      @responsible.student_id = nil
+    it 'should require students' do
+      @responsible.students = []
       expect(@responsible).to_not be_valid
     end
 
