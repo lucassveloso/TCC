@@ -33,10 +33,5 @@ RSpec.describe StudentsController, type: :controller do
       get :index, text_search: "123"
       expect(assigns(:search_results_students)).to match_array([@student_joao])
     end
-
-     it 'returns menssage when text_search no matches any student' do
-      get :index, text_search: "Lucas"
-      expect(assigns(:search_results_students)).to eq("Sua pesquisa não encontrou resultados")
-    end
   end
 end

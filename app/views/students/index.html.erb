@@ -1,15 +1,24 @@
-<% if @search_results_students.kind_of?(String) %>
-  <div class="panel panel-default">
-    <div class="row panel-body">
-      <h3><%= @search_results_students %></h3>
-    </div>
-  </div>
-<% else %>
-  <ul class="list-group col-lg-12">
+<table id="table-students" class="table table-striped table-bordered display responsive no-wrap">
+  <thead>
+    <tr>
+      <th>Nome:</th>
+      <th>Gênero:</th>
+      <th>Nº Nis:</th>
+    </tr>
+  </thead>
+  <tbody>
     <% @search_results_students.each do |student| %>
-      <li class="list-group-item">
-        <a href="students/<%=student.id%>"><h3 class="student-title"><%= student.person.name %></h3></a>
-      </li>
+      <tr>
+        <td>
+          <a href="students/<%=student.id%>"><%= student.person.name %></a>
+        </td>
+        <td>
+         <%= student.person.genre %>
+        </td>
+        <td>
+          <%= student.nis_number %>
+        </td>
+    </tr>
     <% end %>
-  </ul>
-<% end %>
+  </tbody>
+</table>
