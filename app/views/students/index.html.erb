@@ -1,14 +1,15 @@
-<% if @student_search_results.empty? %>
+<% if @search_results_students.kind_of?(String) %>
   <div class="panel panel-default">
     <div class="row panel-body">
-      <h3><%= "Sua pesquisa não encontrou resultados" %></h3>
+      <h3><%= @search_results_students %></h3>
     </div>
   </div>
+<% else %>
+  <ul class="list-group col-lg-12">
+    <% @search_results_students.each do |student| %>
+      <li class="list-group-item">
+        <a href="students/<%=student.id%>"><h3 class="student-title"><%= student.person.name %></h3></a>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
-<ul class="list-group col-lg-12">
-  <% @student_search_results.each do |student| %>
-    <li class="list-group-item">
-      <a href="students/<%=student.id%>"><h3 class="student-title"><%= student.person.name %></h3></a>
-    </li>
-  <% end %>
-</ul>

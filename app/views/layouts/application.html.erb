@@ -7,21 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <div class="board ">
-    <div class="col-lg-2 menu">
-      <%= render 'layouts/menu'%>
-    </div>
-    <div>
-      <div class="header">
-        <%= render 'layouts/header'%>
-      </div>
-      <div class="pages">
-        <section class="min-height-pages">
-          <%= yield %>
-        </section>
-      </div>
-    </div>
-  </div>
+  <header>
+    <%= render 'layouts/header' %>
+  </header>
+  <section class="col-lg-2 menu">
+    <%= render 'layouts/menu'%>
+  </section>
+  <section class="col-lg-10">
+    <%= yield %>
+  </section>
+  <footer>
+  </footer>
 </body>
 </html>

@@ -1,37 +1,29 @@
 // Place all the styles related to the students controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body{
-  background-color: #659557 !important;
+
+.header-style {
+  font-size: 15px;
+  background-color: #243b52 !important;
+  border-color: rgba(0, 0, 0, 0) !important;
+  box-shadow: 0px 5px 5px #888888;
+  border-radius: 0px !important;
+  min-height: 80px !important;
+  z-index: 3;
+  a{
+    color: #FFF !important;
+  }
 }
 
-.board{
-  position: absolute;
-  left: 3%;
-  top: 3%;
-  right: 3%;
-  bottom: 3%;
-  background-color: #fff;
-}
-
-.header{
-  color: #fff;
-  height: 90px;
+.center-nav{
+  margin-top: 13px;
 }
 
 .menu{
-  color: #fff;
-  background-color: #243b52;
-  width: 20%;
-  height: 100%;
-}
-
-.pages{
-  height: 100%;
-  margin-left: 18%;
-}
-
-.search-bar{
-  margin-top: 20px;
-  margin-left: 300px;
+  margin-top: -18px;
+  padding-top: 10px;
+  z-index: 2;
+  border-color: rgba(0, 0, 0, 0) !important;
+  box-shadow: 0px 5px 10px #888888;
+  height: 600px;
 }

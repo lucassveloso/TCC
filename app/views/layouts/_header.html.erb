@@ -1,8 +1,32 @@
-<div class="search-bar">
-    <%= form_tag(students_path, :method => "get", :class => "form-inline", :id => "form_search", :enforce_utf8 => false) do %>
-    <%= text_field_tag :text_search, params[:text_search], :placeholder => "EX: João", :class => "form-control" %>
-    <button type="submit" class="btn btn-primary">
-      <span>Pesquisar</span>
-    </button>
-    <% end %>
-</div>
+<nav class="navbar navbar-default header-style">
+  <div class="container-fluid center-nav">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">TCC</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <%= form_tag(students_path, :method => "get", :class => "navbar-form navbar-right", :id => "form_search", :enforce_utf8 => false) do %>
+        <%= text_field_tag :text_search, params[:text_search], :placeholder => "EX: João", :class => "form-control" %>
+        <button type="submit" class="btn btn-primary">Pesquisar</button>
+      <% end %>
+    </div>
+  </div>
+</nav>
