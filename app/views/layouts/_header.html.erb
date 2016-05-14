@@ -23,10 +23,6 @@
           </ul>
         </li>
       </ul>
-      <%= form_tag(students_path, :method => "get", :class => "navbar-form navbar-right", :id => "form_search", :enforce_utf8 => false) do %>
-        <%= text_field_tag :text_search, params[:text_search], :placeholder => "EX: João", :class => "form-control" %>
-        <button type="submit" class="btn btn-primary">Pesquisar</button>
-      <% end %>
     </div>
   </div>
 </nav>
