@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512004550) do
+ActiveRecord::Schema.define(version: 20160531210653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,25 @@ ActiveRecord::Schema.define(version: 20160512004550) do
     t.string   "notarys_office"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "person_id"
   end
+
+  create_table "groups", force: :cascade do |t|
+    t.integer  "number"
+    t.string   "classroom"
+    t.string   "grade"
+    t.string   "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "groups_teachers", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "teacher_id"
+  end
+
+  add_index "groups_teachers", ["group_id"], name: "index_groups_teachers_on_group_id", using: :btree
+  add_index "groups_teachers", ["teacher_id"], name: "index_groups_teachers_on_teacher_id", using: :btree
 
   create_table "identity_documents", force: :cascade do |t|
     t.integer  "identity_number"
@@ -61,8 +79,11 @@ ActiveRecord::Schema.define(version: 20160512004550) do
     t.string   "naturalness"
     t.string   "nationality"
     t.integer  "address_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "identity_document_id"
+    t.string   "cpf"
+    t.string   "email"
   end
 
   create_table "responsibles", force: :cascade do |t|
@@ -83,15 +104,26 @@ ActiveRecord::Schema.define(version: 20160512004550) do
   create_table "students", force: :cascade do |t|
     t.integer  "person_id"
     t.integer  "nis_number"
-    t.integer  "certificate_id"
-    t.integer  "identity_document_id"
-    t.string   "cpf"
     t.date     "entry_date"
     t.string   "special_needs"
     t.string   "teaching_step"
     t.string   "photo_url"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "notes"
+    t.integer  "group_id"
+  end
+
+  create_table "teachers", force: :cascade do |t|
+    t.integer  "person_id"
+    t.integer  "registration_number"
+    t.string   "notes"
+    t.string   "time_load"
+    t.string   "subject"
+    t.date     "admission_date"
+    t.string   "qualifications"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
 end
