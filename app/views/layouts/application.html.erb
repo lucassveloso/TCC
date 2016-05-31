@@ -5,17 +5,19 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
   <header>
     <%= render 'layouts/header' %>
   </header>
-  <section class="col-lg-2 menu">
-    <%= render 'layouts/menu'%>
-  </section>
-  <section class="col-lg-10">
-    <%= yield %>
-  </section>
+  <div class="container">
+    <div class="row">
+      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <%= yield %>
+      </section>
+    </div>
+  </div>
   <footer>
   </footer>
 </body>

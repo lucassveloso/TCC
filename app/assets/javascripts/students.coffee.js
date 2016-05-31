@@ -3,7 +3,7 @@ createDataTableStudents =  function(){
         "processing": true,
         "serverSide": true,
         "bJQueryUI": true,
-        "responsive": true,
+        "scrollY": 400,
         "ajax": $('#students-table').data('source'),
         "pagingType": "full_numbers",
         "oLanguage": {
