@@ -4,7 +4,7 @@ class CreatePeople < ActiveRecord::Migration
       t.string :name
       t.string :genre
       t.date :birthdate
-      t.string :race
+      t.string :ethnicity
       t.string :phone
       t.string :cellphone
       t.string :naturalness

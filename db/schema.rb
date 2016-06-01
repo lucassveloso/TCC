@@ -11,11 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160531210653) do
+ActiveRecord::Schema.define(version: 20160601022610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
+
+  create_table "additional_activities", force: :cascade do |t|
+    t.string   "activity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "additional_activities_students", force: :cascade do |t|
+    t.integer "additional_activity_id"
+    t.integer "student_id"
+  end
+
+  add_index "additional_activities_students", ["additional_activity_id"], name: "index_additional_activities_students_on_additional_activity_id", using: :btree
+  add_index "additional_activities_students", ["student_id"], name: "index_additional_activities_students_on_student_id", using: :btree
 
   create_table "addresses", force: :cascade do |t|
     t.string   "address"
@@ -29,6 +43,20 @@ ActiveRecord::Schema.define(version: 20160531210653) do
     t.integer  "number"
     t.string   "neighborhood"
   end
+
+  create_table "authorizations", force: :cascade do |t|
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "authorizations_students", force: :cascade do |t|
+    t.integer "authorization_id"
+    t.integer "student_id"
+  end
+
+  add_index "authorizations_students", ["authorization_id"], name: "index_authorizations_students_on_authorization_id", using: :btree
+  add_index "authorizations_students", ["student_id"], name: "index_authorizations_students_on_student_id", using: :btree
 
   create_table "certificates", force: :cascade do |t|
     t.string   "type_of"
@@ -73,7 +101,7 @@ ActiveRecord::Schema.define(version: 20160531210653) do
     t.string   "name"
     t.string   "genre"
     t.date     "birthdate"
-    t.string   "race"
+    t.string   "ethnicity"
     t.string   "phone"
     t.string   "cellphone"
     t.string   "naturalness"
@@ -84,6 +112,7 @@ ActiveRecord::Schema.define(version: 20160531210653) do
     t.integer  "identity_document_id"
     t.string   "cpf"
     t.string   "email"
+    t.string   "religion"
   end
 
   create_table "responsibles", force: :cascade do |t|
@@ -112,6 +141,7 @@ ActiveRecord::Schema.define(version: 20160531210653) do
     t.datetime "updated_at",    null: false
     t.string   "notes"
     t.integer  "group_id"
+    t.boolean  "bolsa_familia"
   end
 
   create_table "teachers", force: :cascade do |t|

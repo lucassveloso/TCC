@@ -11,13 +11,14 @@ describe Student, type: :model do
       expect(@student).to_not be_valid
     end
 
-    it 'should require a nis number' do
-      @student.nis_number = nil
+    it 'should require a group (school class)' do
+      @student.group = nil
       expect(@student).to_not be_valid
     end
 
-    it 'should require a group (school class)' do
-      @student.group = nil
+    it 'should require a Nis number if student has the Bolsa Familia (social program)' do
+      @student.nis_number = nil
+      @student.bolsa_familia = true
       expect(@student).to_not be_valid
     end
   end
