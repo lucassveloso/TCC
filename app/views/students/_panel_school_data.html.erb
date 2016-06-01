@@ -1,0 +1,57 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="#collapse-school-data" aria-expanded="true" aria-controls="collapseOne">
+        Dados Escolares
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-school-data" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="row panel-body">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <div class="row">
+            <label>Turma: </label>
+            <span><%= link_to(@student.group.number, group_path(@student)) %></span>
+          </div>
+          <div class="row">
+            <label>Número NIS: </label>
+            <span><%= @student.nis_number %></span>
+          </div>
+          <div class="row">
+            <label>Data de Ingresso: </label>
+            <span><%= @student.entry_date.strftime("%d/%m/%Y") %></span>
+          </div>
+          <div class="row">
+            <label>Necessidades Especiais: </label>
+            <span><%= @student.special_needs %></span>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <div class="row">
+            <label>Etapa/Modalidade de Ensino: </label>
+            <span><%= @student.teaching_step %></span>
+          </div>
+          <div class="row">
+            <label>Bolsa Família: </label>
+            <span><%= check_box_tag('cb_bolsa_familia', nil,@student.bolsa_familia,  disabled: true) %></span>
+          </div>
+          <div class="row">
+            <label>Observações: </label>
+            <span><%= @student.notes %></span>
+          </div>
+        </div>
+      </div>
+      <div class="row panel-body">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <%= render 'panel_authorizations' %>
+        </div>
+      </div>
+      <div class="row panel-body">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <%= render 'panel_additional_activities' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

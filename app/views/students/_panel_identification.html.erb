@@ -1,0 +1,60 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="#collapse-identification" aria-expanded="true" aria-controls="collapseOne">
+        Identificação
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-identification" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+          <img src="https://www.firespike.com/wp-content/uploads/2014/07/avatar_male_dark_on_clear_200x200.png">
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="row">
+          <label>Nome: </label>
+          <span><%= @student.person.name %></span>
+        </div>
+        <div class="row">
+          <label>Telefone: </label>
+          <span><%= @student.person.phone %></span>
+        </div>
+        <div class="row">
+          <label>Celular: </label>
+          <span><%= @student.person.cellphone %></span>
+        </div>
+        <div class="row">
+          <label>Email: </label>
+          <span><%= @student.person.email %></span>
+        </div>
+        <div class="row">
+          <label>Data de Nascimento: </label>
+          <span><%= @student.person.birthdate.strftime("%d/%m/%Y")%></span>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="row">
+          <label>Gênero: </label>
+          <span><%= @student.person.genre %></span>
+        </div>
+        <div class="row">
+          <label>Etinia: </label>
+          <span><%= @student.person.ethnicity %></span>
+        </div>
+        <div class="row">
+          <label>Nacionalidade: </label>
+          <span><%= @student.person.nationality %></span>
+        </div>
+        <div class="row">
+          <label>Naturalidade: </label>
+          <span><%= @student.person.naturalness %></span>
+        </div>
+        <div class="row">
+          <label>Religião: </label>
+          <span><%= @student.person.religion %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

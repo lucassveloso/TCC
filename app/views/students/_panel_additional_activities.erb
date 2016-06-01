@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="#collapse-additional-activities" aria-expanded="true" aria-controls="collapseOne">
+        Atividades Complementares
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-additional-activities" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="row">
+          <% @student.additional_activities.each do |activity| %>
+            <div class='div-authorization'>
+              <label><%= activity.activity %></label>
+              <span><%= check_box_tag('cb_authorization', nil, activity.participating,  disabled: true) %></span>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>
