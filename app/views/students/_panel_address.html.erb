@@ -1,0 +1,51 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="#collapse-address" aria-expanded="true" aria-controls="collapseOne">
+        Endereço
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-address" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="row">
+          <label>Endereço: </label>
+          <span><%= @student.person.address.address %></span>
+        </div>
+        <div class="row">
+          <label>Bairro: </label>
+          <span><%= @student.person.address.neighborhood %></span>
+        </div>
+        <div class="row">
+          <label>CEP: </label>
+          <span><%= @student.person.address.zipcode %></span>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="row">
+          <label>Número: </label>
+          <span><%= @student.person.address.number %></span>
+        </div>
+        <div class="row">
+          <label>Cidade: </label>
+          <span><%= @student.person.address.city %></span>
+        </div>
+        <div class="row">
+          <label>País: </label>
+          <span><%= @student.person.address.country %></span>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="row">
+          <label>Complemento: </label>
+          <span><%= @student.person.address.complement %></span>
+        </div>
+        <div class="row">
+          <label>Estado: </label>
+          <span><%= @student.person.address.state %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

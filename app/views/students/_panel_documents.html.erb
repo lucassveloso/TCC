@@ -1,0 +1,71 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="#collapse-documents" aria-expanded="true" aria-controls="collapseOne">
+        Documentos
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-documents" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="row panel-body">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="row">
+            <label>Nº da Identidade: </label>
+            <span><%= @student.person.identity_document.identity_number %></span>
+          </div>
+          <div class="row">
+            <label>CPF: </label>
+            <span><%= @student.person.cpf %></span>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="row">
+            <label>Data de Expedição: </label>
+            <span><%= @student.person.identity_document.dispatch_date.strftime("%d/%m/%Y") %></span>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="row">
+            <label>Orgão Expedidor: </label>
+            <span><%= @student.person.identity_document.federation_unit %></span>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="row">
+            <label>UF: </label>
+            <span><%= @student.person.identity_document.dispatcher_organ %></span>
+          </div>
+        </div>
+      </div>
+      <div class="row panel-body">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+              <tr>
+                <td class="active">Tipo de Certidão</td>
+                <td class="active">Nº Termo</td>
+                <td class="active">Folha</td>
+                <td class="active">Livro</td>
+                <td class="active">UF</td>
+                <td class="active">Data de Emissão</td>
+                <td class="active">Cartório</td>
+              </tr>
+            <% @student.person.certificates.each do |certificate| %>
+              <tr>
+                <td><%= certificate.type_of %></td>
+                <td><%= certificate.term_number %></td>
+                <td><%= certificate.sheet_number %></td>
+                <td><%= certificate.book %></td>
+                <td><%= certificate.federation_unit %></td>
+                <td><%= certificate.emission_date.strftime("%d/%m/%Y") unless certificate.emission_date.nil? %></td>
+                <td><%= certificate.notarys_office %></td>
+              </tr>
+            <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="#collapse-responsibles" aria-expanded="true" aria-controls="collapseOne">
+        Responsáveis
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-responsibles" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+              <tr>
+                <td class="active">Nome</td>
+                <td class="active">Grau de Parentesco</td>
+                <td class="active">Telefone</td>
+                <td class="active">Celular</td>
+              </tr>
+            <% @student.responsibles.each do |responsible| %>
+              <tr>
+                <td><%= link_to(responsible.person.name, responsible_path(responsible)) %></td>
+                <td><%= responsible.kinship %></td>
+                <td><%= responsible.person.phone %></td>
+                <td><%= responsible.person.cellphone %></td>
+              </tr>
+            <% end %>
+            </table>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
