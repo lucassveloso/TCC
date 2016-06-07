@@ -7,19 +7,23 @@
   background-color: #334455  !important;
   border-color: rgba(0, 0, 0, 0) !important;
   border-radius: 0px !important;
-  min-height: 80px !important;
   z-index: 3;
   a{
     color: #FFF !important;
   }
 }
 
-.center-nav{
-  margin-top: 13px;
-}
-
 .div-space-between-elements{
   float:left;
   margin-left:10px;
   margin-right:10px;
+}
+
+html, body, #wrapper {
+  padding-top: 17px;
+}
+
+
+.logo{
+  width: 160px;
 }

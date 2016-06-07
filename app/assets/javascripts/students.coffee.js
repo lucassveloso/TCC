@@ -3,7 +3,6 @@ createDataTableStudents =  function(){
         "processing": true,
         "serverSide": true,
         "bJQueryUI": true,
-        "scrollY": 400,
         "ajax": $('#students-table').data('source'),
         "pagingType": "full_numbers",
         "oLanguage": {
@@ -32,9 +31,17 @@ createDataTableStudents =  function(){
      });
 }
 
+toggledMenu = function(){
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+}
 ready = function(){
+    toggledMenu();
     createDataTableStudents();
 }
+
 
 $(document).ready(ready);
 $(document).on('page:load', ready);

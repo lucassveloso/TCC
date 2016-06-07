@@ -8,17 +8,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <header>
-    <%= render 'layouts/header' %>
-  </header>
-  <div class="container">
-    <div class="row">
-      <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <%= yield %>
-      </section>
+  <div id="wrapper">
+    <section id="menu">
+      <%= render 'layouts/menu' %>
+    </section>
+
+    <header>
+      <%= render 'layouts/header' %>
+    </header>
+
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <footer>
-  </footer>
 </body>
 </html>
