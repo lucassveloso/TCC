@@ -8,36 +8,18 @@
   </div>
   <div id="collapse-documents" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
     <div class="panel-body">
+
+      <%= (render 'identity_document', identity_document: person.identity_document) unless person.identity_document.nil? %>
+
       <div class="row panel-body">
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
           <div class="row">
-            <label>Nº da Identidade: </label>
-            <span><%= @student.person.identity_document.identity_number %></span>
-          </div>
-          <div class="row">
             <label>CPF: </label>
-            <span><%= @student.person.cpf %></span>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-          <div class="row">
-            <label>Data de Expedição: </label>
-            <span><%= @student.person.identity_document.dispatch_date.strftime("%d/%m/%Y") %></span>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-          <div class="row">
-            <label>Orgão Expedidor: </label>
-            <span><%= @student.person.identity_document.federation_unit %></span>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-          <div class="row">
-            <label>UF: </label>
-            <span><%= @student.person.identity_document.dispatcher_organ %></span>
+            <span><%= person.cpf %></span>
           </div>
         </div>
       </div>
+
       <div class="row panel-body">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <div class="table-responsive">
@@ -51,7 +33,7 @@
                 <td class="active">Data de Emissão</td>
                 <td class="active">Cartório</td>
               </tr>
-            <% @student.person.certificates.each do |certificate| %>
+            <% person.certificates.each do |certificate| %>
               <tr>
                 <td><%= certificate.type_of %></td>
                 <td><%= certificate.term_number %></td>

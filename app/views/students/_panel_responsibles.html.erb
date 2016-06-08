@@ -17,7 +17,7 @@
                 <td class="active">Telefone</td>
                 <td class="active">Celular</td>
               </tr>
-            <% @student.responsibles.each do |responsible| %>
+            <% responsibles.each do |responsible| %>
               <tr>
                 <td><%= link_to(responsible.person.name, responsible_path(responsible)) %></td>
                 <td><%= responsible.kinship %></td>

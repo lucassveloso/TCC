@@ -1,5 +1,5 @@
-<%= render 'panel_identification' %>
+<%= render 'panel_identification', person: @student.person %>
 <%= render 'panel_school_data' %>
-<%= render 'panel_address' %>
-<%= render 'panel_documents' %>
-<%= render 'panel_responsibles' %>
+<%= (render 'panel_address', address: @student.person.address) unless @student.person.address.nil? %>
+<%= render 'panel_documents', person: @student.person %>
+<%= render 'panel_responsibles', responsibles: @student.responsibles %>
