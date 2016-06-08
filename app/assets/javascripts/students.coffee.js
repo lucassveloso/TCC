@@ -1,4 +1,6 @@
-createDataTableStudents =  function(){
+var STUDENTS = STUDENTS || {}
+
+STUDENTS.createDataTableStudents =  function(){
     $('#students-table').dataTable({
         "processing": true,
         "serverSide": true,
@@ -31,18 +33,3 @@ createDataTableStudents =  function(){
             }
      });
 }
-
-toggledMenu = function(){
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-}
-ready = function(){
-    toggledMenu();
-    createDataTableStudents();
-}
-
-
-$(document).ready(ready);
-$(document).on('page:load', ready);
