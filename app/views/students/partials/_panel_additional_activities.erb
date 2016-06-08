@@ -12,7 +12,11 @@
         <div class="row">
           <%= collection_check_boxes(:student, :additional_activity_ids, @additional_activities, :id, :activity) do |cb|  %>
             <div class="div-space-between-elements">
-              <%= cb.label(:"data-value" => cb.value) { cb.check_box() + " " + cb.text } %>
+              <%if params[:id] %>
+                <%= cb.label(:"data-value" => cb.value) { cb.check_box(disabled: true) + " " + cb.text } %>
+              <% else %>
+                <%= cb.label(:"data-value" => cb.value) { cb.check_box() + " " + cb.text } %>
+              <%end%>
             </div>
           <%end%>
         </div>

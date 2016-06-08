@@ -10,12 +10,15 @@
     <div class="panel-body">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="row">
-          <% @student.authorizations.each do |authorization| %>
-            <div class='div-space-between-elements'>
-              <label><%= authorization.description %></label>
-              <span><%= check_box_tag('cb_authorization', nil, authorization.authorized,  disabled: true) %></span>
+          <%= collection_check_boxes(:student, :authorization_ids, @authorizations, :id, :description) do |cb|  %>
+            <div class="div-space-between-elements">
+              <%if params[:id] %>
+                <%= cb.label(:"data-value" => cb.value) { cb.check_box(disabled: true) + " " + cb.text } %>
+              <% else %>
+                <%= cb.label(:"data-value" => cb.value) { cb.check_box() + " " + cb.text } %>
+              <%end%>
             </div>
-          <% end %>
+          <%end%>
         </div>
       </div>
     </div>

@@ -9,6 +9,14 @@ student2 = Student.create(person: person_daughter, nis_number: 123,  entry_date:
 responsible = Responsible.create(person: person_father, kinship: "Father", students: [student, student2])
 school_class = SchoolClass.create(number:120, classroom:"Sala 10", grade:"4º Ano")
 
+Authorization.create(description:"Uso de imagem")
+Authorization.create(description:"Passeios e Eventos")
+Authorization.create(description:"Retirar livros na biblioteca")
+AdditionalActivity.create(activity:"Mais Educação")
+AdditionalActivity.create(activity:"Sala de Recursos")
+AdditionalActivity.create(activity:"Laboratório de Aprendizagem")
+AdditionalActivity.create(activity:"Reforço Escolar")
+
 (1..100).each do |z|
   student = Student.create(person: person_son, nis_number: 123, school_class: school_class, entry_date: "01/01/2000", special_needs: "Down's syndrome", teaching_step: "EJA", photo_url: "www.photo.com")
   student2 = Student.create(person: person_daughter, nis_number: 456, school_class: school_class, entry_date: "01/01/2000", special_needs: "Down's syndrome", teaching_step: "EJA", photo_url: "www.photo.com")
