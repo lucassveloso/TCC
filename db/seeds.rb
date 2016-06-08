@@ -7,10 +7,10 @@ student = Student.create(person: person_son, nis_number: 123, entry_date: "01/01
 person_daughter = Person.create(name: "Maria", genre: "Female", birthdate: "22/08/1995", ethnicity: "white", phone: "12345", cellphone: "54321", naturalness: "Viamão, RS", nationality: "brasileira", address: address)
 student2 = Student.create(person: person_daughter, nis_number: 123,  entry_date: "01/01/2000", special_needs: "Down's syndrome", teaching_step: "EJA", photo_url: "www.photo.com")
 responsible = Responsible.create(person: person_father, kinship: "Father", students: [student, student2])
-group = Group.create(number:120, classroom:"Sala 10", grade:"4º Ano")
+school_class = SchoolClass.create(number:120, classroom:"Sala 10", grade:"4º Ano")
 
 (1..100).each do |z|
-  student = Student.create(person: person_son, nis_number: 123, group: group, entry_date: "01/01/2000", special_needs: "Down's syndrome", teaching_step: "EJA", photo_url: "www.photo.com")
-  student2 = Student.create(person: person_daughter, nis_number: 456, group: group, entry_date: "01/01/2000", special_needs: "Down's syndrome", teaching_step: "EJA", photo_url: "www.photo.com")
-  Student.create(person: person_father, nis_number: 789, group: group, entry_date: "01/01/2000", special_needs: "Down's syndrome", teaching_step: "EJA", photo_url: "www.photo.com")
+  student = Student.create(person: person_son, nis_number: 123, school_class: school_class, entry_date: "01/01/2000", special_needs: "Down's syndrome", teaching_step: "EJA", photo_url: "www.photo.com")
+  student2 = Student.create(person: person_daughter, nis_number: 456, school_class: school_class, entry_date: "01/01/2000", special_needs: "Down's syndrome", teaching_step: "EJA", photo_url: "www.photo.com")
+  Student.create(person: person_father, nis_number: 789, school_class: school_class, entry_date: "01/01/2000", special_needs: "Down's syndrome", teaching_step: "EJA", photo_url: "www.photo.com")
 end

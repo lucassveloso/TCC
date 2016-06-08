@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160601033833) do
+ActiveRecord::Schema.define(version: 20160608020105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,23 +73,6 @@ ActiveRecord::Schema.define(version: 20160601033833) do
     t.integer  "person_id"
   end
 
-  create_table "groups", force: :cascade do |t|
-    t.integer  "number"
-    t.string   "classroom"
-    t.string   "grade"
-    t.string   "notes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "groups_teachers", force: :cascade do |t|
-    t.integer "group_id"
-    t.integer "teacher_id"
-  end
-
-  add_index "groups_teachers", ["group_id"], name: "index_groups_teachers_on_group_id", using: :btree
-  add_index "groups_teachers", ["teacher_id"], name: "index_groups_teachers_on_teacher_id", using: :btree
-
   create_table "identity_documents", force: :cascade do |t|
     t.integer  "identity_number"
     t.date     "dispatch_date"
@@ -132,6 +115,15 @@ ActiveRecord::Schema.define(version: 20160601033833) do
   add_index "responsibles_students", ["responsible_id"], name: "index_responsibles_students_on_responsible_id", using: :btree
   add_index "responsibles_students", ["student_id"], name: "index_responsibles_students_on_student_id", using: :btree
 
+  create_table "school_classes", force: :cascade do |t|
+    t.integer  "number"
+    t.string   "classroom"
+    t.string   "grade"
+    t.string   "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "students", force: :cascade do |t|
     t.integer  "person_id"
     t.integer  "nis_number"
@@ -139,10 +131,10 @@ ActiveRecord::Schema.define(version: 20160601033833) do
     t.string   "special_needs"
     t.string   "teaching_step"
     t.string   "photo_url"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "notes"
-    t.integer  "group_id"
+    t.integer  "school_class_id"
     t.boolean  "bolsa_familia"
   end
 
@@ -157,5 +149,13 @@ ActiveRecord::Schema.define(version: 20160601033833) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
+
+  create_table "teachers_school_classes", force: :cascade do |t|
+    t.integer "school_class_id"
+    t.integer "teacher_id"
+  end
+
+  add_index "teachers_school_classes", ["school_class_id"], name: "index_teachers_school_classes_on_school_class_id", using: :btree
+  add_index "teachers_school_classes", ["teacher_id"], name: "index_teachers_school_classes_on_teacher_id", using: :btree
 
 end

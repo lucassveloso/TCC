@@ -3,11 +3,11 @@ class StudentDatatable < AjaxDatatablesRails::Base
   include ActionView::Helpers::UrlHelper
 
   def sortable_columns
-    @sortable_columns ||= %w(Person.name Person.genre Student.nis_number Group.number)
+    @sortable_columns ||= %w(Person.name Person.genre Student.nis_number SchoolClass.number)
   end
 
   def searchable_columns
-    @searchable_columns ||= %w(Person.name Person.genre Student.nis_number Group.number)
+    @searchable_columns ||= %w(Person.name Person.genre Student.nis_number SchoolClass.number)
   end
 
   private
@@ -18,12 +18,12 @@ class StudentDatatable < AjaxDatatablesRails::Base
         link_to(record.person.name, student_path(record)),
         record.person.genre,
         record.nis_number,
-        link_to(record.group.number, group_path(record))
+        link_to(record.school_class.number, school_class_path(record))
       ]
     end
   end
 
   def get_raw_records
-    Student.joins(:person, :group)
+    Student.joins(:person, :school_class)
   end
 end
