@@ -12,7 +12,7 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <div class="row">
             <label>Turma: </label>
-            <span><%= link_to(@student.group.number, group_path(@student)) %></span>
+            <span><%= link_to(@student.school_class.number, school_class_path(@student)) %></span>
           </div>
           <div class="row">
             <label>Número NIS: </label>
@@ -44,12 +44,12 @@
       </div>
       <div class="row panel-body">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <%= render 'panel_authorizations' %>
+          <%= render 'students/partials/show/panel_authorizations' %>
         </div>
       </div>
       <div class="row panel-body">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <%= render 'panel_additional_activities' %>
+          <%= render 'students/partials/show/panel_additional_activities' %>
         </div>
       </div>
     </div>

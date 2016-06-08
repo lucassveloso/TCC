@@ -7,4 +7,6 @@ class Student < ActiveRecord::Base
   validates :person, presence: true
   validates :school_class, presence: true
   validates :nis_number, presence: true, if: :bolsa_familia?
+
+  accepts_nested_attributes_for :person
 end

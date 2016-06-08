@@ -1,0 +1,13 @@
+<% if @student.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <% @student.errors.messages.each do |msg| %>
+        <li><%= msg[1][0] %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= render 'students/partials/form/form_panel_identification', f:f %>
+<%= render 'students/partials/form/form_panel_school_data', f:f %>
+
+

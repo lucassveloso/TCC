@@ -1,0 +1,62 @@
+<%= f.fields_for :person do |person_form| %>
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="#collapse-identification" aria-expanded="true" aria-controls="collapseOne">
+        Identificação
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-identification" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <img src="https://www.firespike.com/wp-content/uploads/2014/07/avatar_male_dark_on_clear_200x200.png">
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
+        <div class="row form-group">
+          <%= person_form.label :name, 'Nome:' %>
+          <%= person_form.text_field :name %>
+        </div>
+        <div class="row form-group">
+          <%= person_form.label :phone, 'Telefone:' %>
+          <%= person_form.text_field :phone %>
+        </div>
+        <div class="row form-group">
+          <%= person_form.label :cellphone, 'Celular:' %>
+          <%= person_form.text_field :cellphone %>
+        </div>
+        <div class="row form-group">
+          <%= person_form.label :email, 'Email:' %>
+          <%= person_form.text_field :email %>
+        </div>
+        <div class="row form-group">
+            <%= person_form.label :birthdate, 'Data de Nascimento:' %>
+            <%= person_form.date_select :birthdate, { prompt: { day: 'Dia', month: 'Mês', year: 'Ano' }, start_year: Time.now.year - 100, end_year: Time.now.year}  %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="row form-group">
+          <%= person_form.label :genre, 'Gênero:' %>
+          <%= person_form.select :genre, [['Selecione',nil], 'Masculino', 'Feminino', 'Outro'], {} %>
+        </div>
+        <div class="row form-group">
+          <%= person_form.label :ethnicity, 'Etnia:' %>
+          <%= person_form.text_field :ethnicity %>
+        </div>
+        <div class="row form-group">
+          <%= person_form.label :nationality, 'Nacionalidade:' %>
+          <%= person_form.text_field :nationality %>
+        </div>
+        <div class="row form-group">
+          <%= person_form.label :naturalness, 'Naturalidade:' %>
+          <%= person_form.text_field :naturalness %>
+        </div>
+        <div class="row form-group">
+          <%= person_form.label :religion, 'Religião:' %>
+          <%= person_form.text_field :religion %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

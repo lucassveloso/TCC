@@ -8,5 +8,4 @@ class Person < ActiveRecord::Base
   validates :name, presence: true
   validates :genre, presence: true
   validates :birthdate, presence: true
-
 end

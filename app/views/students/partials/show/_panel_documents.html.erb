@@ -9,7 +9,7 @@
   <div id="collapse-documents" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
     <div class="panel-body">
 
-      <%= (render 'identity_document', identity_document: person.identity_document) unless person.identity_document.nil? %>
+      <%= (render 'students/partials/show/identity_document', identity_document: person.identity_document) unless person.identity_document.nil? %>
 
       <div class="row panel-body">
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">

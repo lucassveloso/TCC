@@ -1,0 +1,57 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="#collapse-school-data" aria-expanded="true" aria-controls="collapseOne">
+        Dados Escolares
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-school-data" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="row panel-body">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <div class="row form-group">
+            <%= f.label :school_class_id, 'Turma:' %>
+            <%= f.collection_select(:school_class_id, @school_classes, :id, :number, {:include_blank => 'Selecione a Turma'}) %>
+          </div>
+          <div class="row form-group">
+            <%= f.label :nis_number, 'Número NIS:' %>
+            <%= f.text_field :nis_number %>
+          </div>
+          <div class="row form-group">
+            <%= f.label :entry_date, 'Data de Ingresso:' %>
+            <%= f.date_select :entry_date, { prompt: { day: 'Dia', month: 'Mês', year: 'Ano' }, start_year: Time.now.year - 100, end_year: Time.now.year}  %>
+          </div>
+          <div class="row form-group">
+            <%= f.label :special_needs, 'Necessidades Especiais:' %>
+            <%= f.text_field :special_needs %>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <div class="row form-group">
+            <%= f.label :teaching_step, 'Etapa/Modalidade de Ensino:' %>
+            <%= f.text_field :teaching_step %>
+          </div>
+          <div class="row form-group">
+            <%= f.label :bolsa_familia, 'Bolsa Família:' %>
+            <%= f.check_box :bolsa_familia %>
+          </div>
+          <div class="row form-group">
+            <%= f.label :notes, 'Observações:' %>
+            <%= f.text_area :notes %>
+          </div>
+        </div>
+      </div>
+      <div class="row panel-body">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <%= render 'students/partials/form/form_panel_authorizations' %>
+        </div>
+      </div>
+      <div class="row panel-body">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <%= render 'students/partials/form/form_panel_additional_activities' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
