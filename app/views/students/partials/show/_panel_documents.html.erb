@@ -9,13 +9,13 @@
   <div id="collapse-documents" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
     <div class="panel-body">
 
-      <%= (render 'students/partials/show/identity_document', identity_document: person.identity_document) unless person.identity_document.nil? %>
+      <%= (render 'students/partials/show/identity_document', identity_document: document.identity_document) unless document.identity_document.nil? %>
 
       <div class="row panel-body">
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
           <div class="row">
             <label>CPF: </label>
-            <span><%= person.cpf %></span>
+            <span><%= document.cpf %></span>
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@
                 <td class="active">Data de Emissão</td>
                 <td class="active">Cartório</td>
               </tr>
-            <% person.certificates.each do |certificate| %>
+            <% document.certificates.each do |certificate| %>
               <tr>
                 <td><%= certificate.type_of %></td>
                 <td><%= certificate.term_number %></td>

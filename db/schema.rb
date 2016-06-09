@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160608020105) do
+ActiveRecord::Schema.define(version: 20160609040349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,7 +70,14 @@ ActiveRecord::Schema.define(version: 20160608020105) do
     t.string   "notarys_office"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "person_id"
+    t.integer  "document_id"
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.string   "cpf"
+    t.integer  "identity_document_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "identity_documents", force: :cascade do |t|
@@ -92,12 +99,12 @@ ActiveRecord::Schema.define(version: 20160608020105) do
     t.string   "naturalness"
     t.string   "nationality"
     t.integer  "address_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "identity_document_id"
-    t.string   "cpf"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "email"
     t.string   "religion"
+    t.string   "photo_url"
+    t.integer  "document_id"
   end
 
   create_table "responsibles", force: :cascade do |t|
@@ -130,7 +137,6 @@ ActiveRecord::Schema.define(version: 20160608020105) do
     t.date     "entry_date"
     t.string   "special_needs"
     t.string   "teaching_step"
-    t.string   "photo_url"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "notes"

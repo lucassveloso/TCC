@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Person, type: :model do
   describe 'validation' do
     before :each do
-      @person = Person.new(name: "Lucas", genre: "Male", birthdate: "22/08/1995", identity_document: IdentityDocument.new, cpf: "000.000.000-00",ethnicity: "white", phone: "12345", cellphone: "54321", naturalness: "Viamão, RS", nationality: "brasileira", address: Address.new)
+      @person = Person.new(name: "Lucas", genre: "Male", birthdate: "22/08/1995")
     end
 
     it 'should require a name' do
