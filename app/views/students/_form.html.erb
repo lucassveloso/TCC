@@ -1,0 +1,21 @@
+<% if @student.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <% @student.errors.messages.each do |msg| %>
+        <li><%= msg[1][0] %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= student_form.fields_for :person do |person_form| %>
+  <%= render 'people/form_person', person_form:person_form %>
+
+  <%= render 'form_student', student_form:student_form %>
+
+  <%= person_form.fields_for :address do |address_form| %>
+    <%= render 'addresses/form_address', address_form:address_form %>
+  <% end %>
+<% end %>
+
+

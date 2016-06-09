@@ -72,3 +72,5 @@ pt_br:
           attributes:
             address:
               blank: "Endereço deve ser preenchido!"
+            city:
+              blank: "Cidade deve ser preenchida!"

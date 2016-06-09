@@ -15,7 +15,8 @@ class StudentsController < ApplicationController
 
   def new
     @student = Student.new
-    @student.build_person
+    person = @student.build_person
+    address = person.build_address
   end
 
   def create
@@ -44,7 +45,9 @@ class StudentsController < ApplicationController
     params.require(:student).permit(:nis_number, :entry_date, :special_needs, :teaching_step, :photo_url,
                                     :notes, :bolsa_familia, :school_class_id, additional_activity_ids: [],
                                     authorization_ids: [], person_attributes: [:name, :phone, :cellphone,
-                                    :email, :birthdate, :genre, :ethnicity, :nationality, :naturalness, :religion])
+                                    :email, :birthdate, :genre, :ethnicity, :nationality, :naturalness,
+                                    :religion, address_attributes: [:address, :zipcode, :number, :complement,
+                                    :state, :city, :country, :neighborhood]])
   end
 
   def set_school_classes

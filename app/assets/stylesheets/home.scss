@@ -1,5 +1,6 @@
 html, body, #wrapper {
   padding-top: 17px;
+  background-color: #f2f1f9;
 }
 
 .header-style {
@@ -12,7 +13,10 @@ html, body, #wrapper {
     color: #FFF !important;
   }
 }
-
+.panel-heading{
+  background-color: #334455 !important;
+  color: #FFF !important;
+}
 .logo{
   width: 160px;
 }

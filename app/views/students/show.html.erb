@@ -1,5 +1,5 @@
-<%= render 'students/partials/show/panel_identification', person: @student.person %>
-<%= render 'students/partials/show/panel_school_data' %>
-<%= (render 'students/partials/show/panel_address', address: @student.person.address) unless @student.person.address.nil? %>
-<%= render 'students/partials/show/panel_documents', document: @student.person.document %>
-<%= render 'students/partials/show/panel_responsibles', responsibles: @student.responsibles %>
+<%= render 'people/show_person', person: @student.person %>
+<%= render 'show_student' %>
+<%= render 'addresses/show_address', address: @student.person.address unless @student.person.address.nil? %>
+<%= render 'documents/show_documents', document: @student.person.document unless @student.person.document.nil? %>
+<%= render 'responsibles/show_responsibles', responsibles: @student.responsibles %>
