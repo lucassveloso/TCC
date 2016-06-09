@@ -40,7 +40,7 @@
                 <td><%= certificate.sheet_number %></td>
                 <td><%= certificate.book %></td>
                 <td><%= certificate.federation_unit %></td>
-                <td><%= certificate.emission_date.strftime("%d/%m/%Y") unless certificate.emission_date.nil? %></td>
+                <td><%= certificate.emission_date %></td>
                 <td><%= certificate.notarys_office %></td>
               </tr>
             <% end %>

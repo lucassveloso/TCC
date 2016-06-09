@@ -11,34 +11,48 @@
       <div class="row panel-body">
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <div class="row form-group">
-            <%= f.label :school_class_id, 'Turma:' %>
-            <%= f.collection_select(:school_class_id, @school_classes, :id, :number, {:include_blank => 'Selecione a Turma'}) %>
+            <%= f.label :school_class_id, 'Turma:', class: "col-sm-3 control-label" %>
+            <div class="col-sm-9">
+              <%= f.collection_select(:school_class_id, @school_classes, :id, :number, {:include_blank => 'Selecione a Turma'}, class: "form-control") %>
+            </div>
           </div>
           <div class="row form-group">
-            <%= f.label :nis_number, 'Número NIS:' %>
-            <%= f.text_field :nis_number %>
+            <%= f.label :nis_number, 'Número NIS:', class: "col-sm-3 control-label" %>
+            <div class="col-sm-9">
+              <%= f.text_field :nis_number, class: "form-control" %>
+            </div>
           </div>
           <div class="row form-group">
-            <%= f.label :entry_date, 'Data de Ingresso:' %>
-            <%= f.date_select :entry_date, { prompt: { day: 'Dia', month: 'Mês', year: 'Ano' }, start_year: Time.now.year - 100, end_year: Time.now.year}  %>
+            <%= f.label :entry_date, 'Data de Ingresso:', class: "col-sm-3 control-label" %>
+            <div class="col-sm-9">
+              <%= f.date_field :entry_date, class: 'form-control date-mask' %>
+            </div>
           </div>
           <div class="row form-group">
-            <%= f.label :special_needs, 'Necessidades Especiais:' %>
-            <%= f.text_field :special_needs %>
+            <%= f.label :special_needs, 'Necessidades Especiais:', class: "col-sm-3 control-label" %>
+            <div class="col-sm-9">
+              <%= f.text_field :special_needs, class: "form-control" %>
+            </div>
           </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <div class="row form-group">
-            <%= f.label :teaching_step, 'Etapa/Modalidade de Ensino:' %>
-            <%= f.text_field :teaching_step %>
+            <%= f.label :teaching_step, 'Etapa/Modalidade de Ensino:', class: "col-sm-3 control-label" %>
+            <div class="col-sm-9">
+              <%= f.text_field :teaching_step, class: "form-control" %>
+            </div>
           </div>
           <div class="row form-group">
-            <%= f.label :bolsa_familia, 'Bolsa Família:' %>
-            <%= f.check_box :bolsa_familia %>
+            <%= f.label :bolsa_familia, 'Bolsa Família:', class: "col-sm-3 control-label" %>
+            <div class="col-sm-9">
+              <%= f.check_box :bolsa_familia %>
+            </div>
           </div>
           <div class="row form-group">
-            <%= f.label :notes, 'Observações:' %>
-            <%= f.text_area :notes %>
+            <%= f.label :notes, 'Observações:', class: "col-sm-3 control-label" %>
+            <div class="col-sm-9">
+              <%= f.text_area :notes, class: "form-control"%>
+            </div>
           </div>
         </div>
       </div>

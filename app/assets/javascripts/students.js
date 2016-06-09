@@ -1,6 +1,6 @@
 var STUDENTS = STUDENTS || {}
 
-STUDENTS.createDataTableStudents =  function(){
+STUDENTS.createDataTableStudents =  function createDataTableStudents(){
     $('#students-table').dataTable({
         "processing": true,
         "serverSide": true,
