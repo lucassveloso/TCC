@@ -17,6 +17,8 @@ class StudentsController < ApplicationController
     @student = Student.new
     person = @student.build_person
     address = person.build_address
+    document = person.build_document
+    identity_document = document.build_identity_document
   end
 
   def create
@@ -42,12 +44,15 @@ class StudentsController < ApplicationController
   end
 
   def student_params
-    params.require(:student).permit(:nis_number, :entry_date, :special_needs, :teaching_step, :photo_url,
-                                    :notes, :bolsa_familia, :school_class_id, additional_activity_ids: [],
-                                    authorization_ids: [], person_attributes: [:name, :phone, :cellphone,
-                                    :email, :birthdate, :genre, :ethnicity, :nationality, :naturalness,
-                                    :religion, address_attributes: [:address, :zipcode, :number, :complement,
-                                    :state, :city, :country, :neighborhood]])
+    params.require(:student).permit(:id, :nis_number, :entry_date, :special_needs, :teaching_step, :photo_url, :notes, :bolsa_familia, :school_class_id,
+                                    additional_activity_ids: [],authorization_ids: [],
+                                    person_attributes: [:name, :phone, :cellphone, :email, :birthdate, :genre, :ethnicity, :nationality, :naturalness, :religion,
+                                      address_attributes: [:address, :zipcode, :number, :complement, :state, :city, :country, :neighborhood],
+                                      document_attributes: [:cpf,
+                                        identity_document_attributes: [:identity_number, :dispatch_date, :dispatcher_organ, :federation_unit],
+                                        certificates_attributes: [:type_of, :term_number, :sheet_number, :book, :federation_unit, :emission_date, :notarys_office]
+                                      ]
+                                    ])
   end
 
   def set_school_classes

@@ -8,5 +8,5 @@ class Person < ActiveRecord::Base
   validates :genre, presence: true
   validates :birthdate, presence: true
 
-  accepts_nested_attributes_for :address
+  accepts_nested_attributes_for :address, :document
 end

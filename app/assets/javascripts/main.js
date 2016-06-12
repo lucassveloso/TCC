@@ -3,6 +3,7 @@ ready = function ready(){
     MENU.markMenuActive();
     STUDENTS.createDataTableStudents();
     MASKS.addMasks();
+    NESTEDFORM.insertFields();
 }
 
 $(document).ready(ready);

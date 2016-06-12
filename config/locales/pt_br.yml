@@ -68,9 +68,3 @@ pt_br:
               blank: "A turma deve ser preenchida!"
             nis_number:
               blank: "O número do NIS deve ser preenchido se o aluno possui Bolsa Família!"
-        address:
-          attributes:
-            address:
-              blank: "Endereço deve ser preenchido!"
-            city:
-              blank: "Cidade deve ser preenchida!"

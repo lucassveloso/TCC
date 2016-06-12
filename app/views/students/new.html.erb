@@ -1,7 +1,7 @@
 <div class="text-center">
   <h1>Cadastrar Aluno</h1>
 </div>
-<%= form_for(@student, :html=>{:id=>"form-student"}) do |student_form| %>
+<%= nested_form_for(@student, :html=>{:id=>"form-student"}) do |student_form| %>
 <%= render 'form', student_form:student_form %>
 <div class="row">
   <div class="form-group">

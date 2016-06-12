@@ -16,6 +16,10 @@
   <%= person_form.fields_for :address do |address_form| %>
     <%= render 'addresses/form_address', address_form:address_form %>
   <% end %>
+
+  <%= person_form.fields_for :document do |documents_form| %>
+    <%= render 'documents/form_documents', documents_form:documents_form %>
+  <% end %>
 <% end %>
 
 
