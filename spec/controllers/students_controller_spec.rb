@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe StudentsController, type: :controller do
   describe '#show' do
     before :each do
-      @student_db =  Student.create(id:10, person: Person.new(name:"Lucas", genre:"Male", birthdate: "22/08/1995"), school_class: SchoolClass.new(number:10, grade: "primary"))
+      @student_db =  Student.create(id:10, person: Person.new(name:"Lucas", genre:"Male", birthdate: "01/01/2000"), school_class: SchoolClass.new(number:10, grade: "primary"))
     end
 
     context 'when parameter ID is valid' do
