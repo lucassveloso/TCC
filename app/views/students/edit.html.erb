@@ -1,12 +1,12 @@
 <div class="text-center">
-  <h1>Cadastrar Aluno</h1>
+  <h1>Editar Aluno</h1>
 </div>
 <%= form_for(@student, :html=>{:id=>"form-student"}) do |student_form| %>
 <%= render 'form', student_form:student_form %>
 <div class="row">
   <div class="form-group">
     <div class="col-lg-offset-4 col-lg-4 margin-end-top margin-end-bot">
-      <%= student_form.submit "Criar Aluno", :class => "btn btn-default btn-lg btn-block btn-primary", id: "confirm-student" %>
+      <%= student_form.submit "Salvar alterações", :class => "btn btn-default btn-lg btn-block btn-primary", id: "confirm-student" %>
     </div>
   </div>
 </div>

@@ -1,0 +1,63 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="#collapse-certificate" aria-expanded="true" aria-controls="collapseOne">
+        Certidão
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-certificate" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        <div class="row form-group">
+          <%= certificate_form.label :type_of, 'Tipo de Certidão:', class: "col-sm-4 control-label" %>
+          <div class="col-sm-8">
+            <%= certificate_form.select :type_of, ['Nascimento', 'Casamento'], {}, class: "form-control" %>
+          </div>
+        </div>
+        <div class="row form-group">
+          <%= certificate_form.label :federation_unit, 'UF:', class: "col-sm-4 control-label" %>
+          <div class="col-sm-8">
+            <%= certificate_form.text_field :federation_unit, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="row form-group">
+          <%= certificate_form.label :term_number, 'Nº Termo:', class: "col-sm-4 control-label" %>
+          <div class="col-sm-8">
+            <%= certificate_form.text_field :term_number, class: "form-control" %>
+          </div>
+        </div>
+        <div class="row form-group">
+          <%= certificate_form.label :emission_date, 'Data de Emissão:', class: "col-sm-4 control-label" %>
+          <div class="col-sm-8">
+            <%= certificate_form.date_field :emission_date, class: "form-control date-mask" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        <div class="row form-group">
+          <%= certificate_form.label :sheet_number, 'Folha:', class: "col-sm-4 control-label" %>
+          <div class="col-sm-8">
+            <%= certificate_form.text_field :sheet_number, class: "form-control" %>
+          </div>
+        </div>
+        <div class="row form-group">
+          <%= certificate_form.label :notarys_office, 'Cartório:', class: "col-sm-4 control-label" %>
+          <div class="col-sm-8">
+            <%= certificate_form.text_field :notarys_office, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+        <div class="row form-group">
+          <%= certificate_form.label :book , 'Livro:', class: "col-sm-4 control-label" %>
+          <div class="col-sm-8">
+            <%= certificate_form.text_field :book , class: "form-control" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

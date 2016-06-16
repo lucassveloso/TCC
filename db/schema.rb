@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609040349) do
+ActiveRecord::Schema.define(version: 20160616040326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 20160609040349) do
     t.string   "notarys_office"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "document_id"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -78,6 +77,7 @@ ActiveRecord::Schema.define(version: 20160609040349) do
     t.integer  "identity_document_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "certificate_id"
   end
 
   create_table "identity_documents", force: :cascade do |t|

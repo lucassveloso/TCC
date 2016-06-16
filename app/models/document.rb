@@ -1,6 +1,6 @@
 class Document < ActiveRecord::Base
   belongs_to :identity_document
+  belongs_to :certificate
   has_one :person
-  has_many :certificates
-  accepts_nested_attributes_for :identity_document, :certificates
+  accepts_nested_attributes_for :identity_document, :certificate
 end

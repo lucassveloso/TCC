@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="#collapse-identity_documents" aria-expanded="true" aria-controls="collapseOne">
+        Carteira de Identidade
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-identity_documents" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        <div class="row">
+          <label>Nº da Identidade: </label>
+          <span><%= identity_document.identity_number %></span>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        <div class="row">
+          <label>Data de Expedição: </label>
+          <span><%= identity_document.dispatch_date %></span>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        <div class="row">
+          <label>Orgão Expedidor: </label>
+          <span><%= identity_document.dispatcher_organ %></span>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        <div class="row">
+          <label>UF: </label>
+          <span><%= identity_document.federation_unit %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

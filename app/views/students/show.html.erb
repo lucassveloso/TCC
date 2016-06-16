@@ -1,5 +1,15 @@
-<%= render 'people/show_person', person: @student.person %>
-<%= render 'show_student' %>
-<%= render 'addresses/show_address', address: @student.person.address unless @student.person.address.nil? %>
-<%= render 'documents/show_documents', document: @student.person.document unless @student.person.document.nil? %>
-<%= render 'responsibles/show_responsibles', responsibles: @student.responsibles %>
+<div class="row">
+  <% if flash[:notice] != nil %>
+    <div class= "alert alert-success col-lg-offset-4 col-lg-4 centralize">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <p id="notice"><%= notice %></p>
+    </div>
+  <%end%>
+</div>
+<div class="panel-group" id="accordion-student" role="tablist" aria-multiselectable="true">
+  <%= render 'people/show_person', person: @student.person %>
+  <%= render 'show_student' %>
+  <%= render 'addresses/show_address', address: @student.person.address unless @student.person.address.nil? %>
+  <%= render 'documents/show_documents', document: @student.person.document unless @student.person.document.nil? %>
+  <%= render 'responsibles/show_responsibles', responsibles: @student.responsibles %>
+</div>

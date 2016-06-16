@@ -1,0 +1,49 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="#collapse-certificate" aria-expanded="true" aria-controls="collapseOne">
+        Certidão
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-certificate" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        <div class="row">
+          <label>Tipo de Certidão: </label>
+          <span><%= certificate.type_of %></span>
+        </div>
+        <div class="row">
+          <label>UF: </label>
+          <span><%= certificate.federation_unit %></span>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        <div class="row">
+          <label>Nº Termo: </label>
+          <span><%= certificate.term_number %></span>
+        </div>
+        <div class="row">
+          <label>Data de Emissão: </label>
+          <span><%= certificate.emission_date %></span>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        <div class="row">
+          <label>Folha: </label>
+          <span><%= certificate.sheet_number %></span>
+        </div>
+        <div class="row">
+          <label>Cartório: </label>
+          <span><%= certificate.notarys_office %></span>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        <div class="row">
+          <label>Livro: </label>
+          <span><%= certificate.book %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

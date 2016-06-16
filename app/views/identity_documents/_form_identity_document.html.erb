@@ -1,0 +1,45 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="#collapse-identity_documents" aria-expanded="true" aria-controls="collapseOne">
+        Carteira de Identidade
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-identity_documents" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        <div class="row form-group">
+          <%= identity_document_form.label :identity_number, 'Nº da Identidade:', class: "col-sm-4 control-label" %>
+          <div class="col-sm-8">
+            <%= identity_document_form.text_field :identity_number, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="row form-group">
+          <%= identity_document_form.label :dispatch_date, 'Data de Expedição:', class: "col-sm-3 control-label" %>
+          <div class="col-sm-9">
+            <%= identity_document_form.date_field :dispatch_date, class: "form-control date-mask" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        <div class="row form-group">
+          <%= identity_document_form.label :dispatcher_organ, 'Orgão Expedidor:', class: "col-sm-4 control-label" %>
+          <div class="col-sm-8">
+            <%= identity_document_form.text_field :dispatcher_organ, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+        <div class="row form-group">
+          <%= identity_document_form.label :federation_unit , 'UF:', class: "col-sm-3 control-label" %>
+          <div class="col-sm-9">
+            <%= identity_document_form.text_field :federation_unit , class: "form-control" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

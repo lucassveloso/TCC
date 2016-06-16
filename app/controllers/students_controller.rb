@@ -1,8 +1,8 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :destroy]
+  before_action :set_student, only: [:show, :edit, :update, :destroy]
   before_action :set_school_classes, only: [:new, :edit, :create]
   before_action :set_authorizations, :set_additional_activities, only: [:show, :new, :edit, :create]
-
+  before_action :set_new_student, only: [:new]
   def index
     respond_to do |format|
       format.html
@@ -14,11 +14,6 @@ class StudentsController < ApplicationController
   end
 
   def new
-    @student = Student.new
-    person = @student.build_person
-    address = person.build_address
-    document = person.build_document
-    identity_document = document.build_identity_document
   end
 
   def create
@@ -35,12 +30,31 @@ class StudentsController < ApplicationController
   def edit
   end
 
+  def update
+    respond_to do |format|
+      if @student.update(student_params)
+        format.html { redirect_to @student , notice: 'Alterações realizadas com sucesso' }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
+
   def destroy
   end
 
   private
   def set_student
     @student = Student.where(id: params[:id]).present? ? Student.find(params[:id]) : (redirect_to "/404")
+  end
+
+  def set_new_student
+    @student = Student.new
+    person = @student.build_person
+    address = person.build_address
+    document = person.build_document
+    identity_document = document.build_identity_document
+    certificate = document.build_certificate
   end
 
   def student_params
@@ -50,7 +64,7 @@ class StudentsController < ApplicationController
                                       address_attributes: [:address, :zipcode, :number, :complement, :state, :city, :country, :neighborhood],
                                       document_attributes: [:cpf,
                                         identity_document_attributes: [:identity_number, :dispatch_date, :dispatcher_organ, :federation_unit],
-                                        certificates_attributes: [:type_of, :term_number, :sheet_number, :book, :federation_unit, :emission_date, :notarys_office]
+                                        certificate_attributes: [:type_of, :term_number, :sheet_number, :book, :federation_unit, :emission_date, :notarys_office]
                                       ]
                                     ])
   end

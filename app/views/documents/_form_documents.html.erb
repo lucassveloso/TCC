@@ -9,42 +9,6 @@
   <div id="collapse-documents" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
     <div class="panel-body">
       <div class="row panel-body">
-        <%= documents_form.fields_for :identity_document do |identity_document_form| %>
-          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-            <div class="row form-group">
-              <%= identity_document_form.label :identity_number, 'Nº da Identidade:', class: "col-sm-4 control-label" %>
-              <div class="col-sm-8">
-                <%= identity_document_form.text_field :identity_number, class: "form-control" %>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-            <div class="row form-group">
-              <%= identity_document_form.label :dispatch_date, 'Data de Expedição:', class: "col-sm-3 control-label" %>
-              <div class="col-sm-9">
-                <%= identity_document_form.date_field :dispatch_date, class: "form-control date-mask" %>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-            <div class="row form-group">
-              <%= identity_document_form.label :dispatcher_organ, 'Orgão Expedidor:', class: "col-sm-4 control-label" %>
-              <div class="col-sm-8">
-                <%= identity_document_form.text_field :dispatcher_organ, class: "form-control" %>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
-            <div class="row form-group">
-              <%= identity_document_form.label :federation_unit , 'UF:', class: "col-sm-3 control-label" %>
-              <div class="col-sm-9">
-                <%= identity_document_form.text_field :federation_unit , class: "form-control" %>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-      <div class="row panel-body">
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
           <div class="row form-group">
             <%= documents_form.label :cpf, 'CPF:', class: "col-sm-3 control-label" %>
@@ -55,45 +19,14 @@
         </div>
       </div>
       <div class="row panel-body">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <div class="table-responsive">
-            <table class="table table-bordered table-striped">
-              <tr>
-                <td class="active">Ação</td>
-                <td class="active">Tipo de Certidão</td>
-                <td class="active">Nº Termo</td>
-                <td class="active">Folha</td>
-                <td class="active">Livro</td>
-                <td class="active">UF</td>
-                <td class="active">Data de Emissão</td>
-                <td class="active">Cartório</td>
-              </tr>
-              <%= documents_form.fields_for :certificates, :wrapper => false do |certificate_form| %>
-              <tr class="fields">
-                <td>
-                  <%= documents_form.link_to_remove do %>
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                  <% end %>
-                </td>
-                <td><%= certificate_form.text_field :type_of, class: "form-control" %></td>
-                <td><%= certificate_form.text_field :term_number, class: "form-control" %></td>
-                <td><%= certificate_form.text_field :sheet_number, class: "form-control" %></td>
-                <td><%= certificate_form.text_field :book, class: "form-control" %></td>
-                <td><%= certificate_form.text_field :federation_unit, class: "form-control" %></td>
-                <td><%= certificate_form.date_field :emission_date, class: "form-control date-mask" %></td>
-                <td><%= certificate_form.text_field :notarys_office, class: "form-control" %></td>
-              </tr>
-              <% end %>
-              <tr>
-                <td>
-                  <%= documents_form.link_to_add :certificates do %>
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                  <% end %>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </div>
+        <%= documents_form.fields_for :identity_document do |identity_document_form| %>
+          <%= render 'identity_documents/form_identity_document', identity_document_form:identity_document_form %>
+        <% end %>
+      </div>
+      <div class="row panel-body">
+        <%= documents_form.fields_for :certificate do |certificate_form| %>
+          <%= render 'certificates/form_certificate', certificate_form:certificate_form %>
+        <% end %>
       </div>
     </div>
   </div>

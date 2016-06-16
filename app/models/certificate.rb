@@ -1,3 +1,3 @@
 class Certificate < ActiveRecord::Base
-  belongs_to :document
+  has_one :document
 end

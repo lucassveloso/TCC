@@ -26,7 +26,7 @@
     height: 100%;
     margin-left: -150px;
     overflow-y: auto;
-    background: #334455;
+    background: #2a2d33;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -74,7 +74,7 @@
 .menu-active {
     text-decoration: none;
     color: #fff !important;
-    background: rgba(255,255,255,0.2);
+    background: rgba(101,108,126,0.5);
 }
 
 .sidebar-nav li a:active,

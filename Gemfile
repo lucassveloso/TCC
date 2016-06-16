@@ -15,7 +15,6 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'jquery-datatables-rails', '~> 3.3.0'
 gem 'ajax-datatables-rails'
-gem "nested_form"
 
 
 group :development, :test do
