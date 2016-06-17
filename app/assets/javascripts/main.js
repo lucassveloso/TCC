@@ -3,6 +3,7 @@ ready = function ready(){
     MENU.markMenuActive();
     STUDENTS.createDataTableStudents();
     MASKS.addMasks();
+    CLOUDINARY.setUploadWidget();
 }
 
 $(document).ready(ready);
