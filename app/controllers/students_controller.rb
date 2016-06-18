@@ -41,6 +41,10 @@ class StudentsController < ApplicationController
   end
 
   def destroy
+    @student.destroy
+    respond_to do |format|
+      format.html { redirect_to students_path, notice: "O Aluno #{@student.person.name} foi removido com sucesso" }
+    end
   end
 
   private

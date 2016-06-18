@@ -6,10 +6,16 @@
     </div>
   <%end%>
 </div>
-<div class="panel-group" id="accordion-student" role="tablist" aria-multiselectable="true">
+<div class="row form-group">
+  <%= link_to "Editar Aluno", edit_student_path, class: "btn btn-primary" %>
+  <button type="button" class="btn btn-default btn-danger" aria-label="Left Align" data-toggle="modal" data-target="#confirm-delete-modal">Remover Aluno</button>
+ </div>
+<div class="panel-group row" id="accordion-student" role="tablist" aria-multiselectable="true">
   <%= render 'people/show_person', person: @student.person %>
   <%= render 'show_student' %>
   <%= render 'addresses/show_address', address: @student.person.address unless @student.person.address.nil? %>
   <%= render 'documents/show_documents', document: @student.person.document unless @student.person.document.nil? %>
   <%= render 'responsibles/show_responsibles', responsibles: @student.responsibles %>
 </div>
+
+<%= render "delete_student_modal" %>
