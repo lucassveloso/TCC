@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="#collapse-students" aria-expanded="true" aria-controls="collapseOne">
+        Alunos
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-students" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="row panel-body">
+        <table id="students-table" data-source="<%= school_class_path(format: :json) %>" class="table table-striped table-bordered display responsive no-wrap dataTable">
+          <thead>
+            <tr>
+              <th>Nome:</th>
+              <th>Gênero:</th>
+              <th>Nº Nis:</th>
+              <th>Turma:</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

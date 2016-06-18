@@ -1,7 +1,7 @@
 ready = function ready(){
     MENU.toggledMenu();
     MENU.markMenuActive();
-    STUDENTS.createDataTableStudents();
+    DATATABLE.createDataTables();
     MASKS.addMasks();
     CLOUDINARY.setUploadWidget();
 }

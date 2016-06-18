@@ -1,0 +1,17 @@
+<%= render "layouts/flash_messages" %>
+<div class="row form-group">
+  <%= link_to "Cadastrar Turma", new_school_class_path, class: "btn btn-primary" %>
+</div>
+<div class="row">
+  <table id="school-classes-table" data-source="<%= school_classes_path(format: :json) %>" class="table table-striped table-bordered display responsive no-wrap dataTable">
+    <thead>
+      <tr>
+        <th>Nº da Turma:</th>
+        <th>Sala:</th>
+        <th>Série/Ano:</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>

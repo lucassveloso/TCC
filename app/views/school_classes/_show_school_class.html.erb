@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="#collapse-school-class" aria-expanded="true" aria-controls="collapseOne">
+        Turma
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-school-class" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="row panel-body">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <div class="row">
+            <label>Número da Turma: </label>
+            <span><%= @school_class.number %></span>
+          </div>
+          <div class="row">
+            <label>Sala: </label>
+            <span><%= @school_class.classroom %></span>
+          </div>
+          <div class="row">
+            <label>Série/Ano: </label>
+            <span><%= @school_class.grade %></span>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <div class="row">
+            <label>Observações: </label>
+            <span><%= @school_class.notes %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

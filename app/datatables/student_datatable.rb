@@ -18,12 +18,12 @@ class StudentDatatable < AjaxDatatablesRails::Base
         link_to(record.person.name, student_path(record)),
         record.person.genre,
         record.nis_number,
-        link_to(record.school_class.number, school_class_path(record))
+        link_to(record.school_class.number, school_class_path(record.school_class))
       ]
     end
   end
 
   def get_raw_records
-    Student.joins(:person, :school_class)
+    options[:students]
   end
 end

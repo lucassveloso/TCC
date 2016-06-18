@@ -68,3 +68,9 @@ pt_br:
               blank: "A turma deve ser preenchida!"
             nis_number:
               blank: "O número do NIS deve ser preenchido se o aluno possui Bolsa Família!"
+        school_class:
+          attributes:
+            number:
+              blank: "O número da turma deve ser preenchido!"
+            grade:
+              blank: "A série/ano da turma deve ser preenchida!"

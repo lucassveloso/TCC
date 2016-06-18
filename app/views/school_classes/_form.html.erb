@@ -1,0 +1,54 @@
+<% if @school_class.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <% @school_class.errors.messages.each do |msg| %>
+        <li><%= msg[1][0] %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="#collapse-school-class" aria-expanded="true" aria-controls="collapseOne">
+        Turma
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-school-class" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="row panel-body">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <div class="row form-group">
+            <%= school_class_form.label :number, 'Número da Turma:', class: "col-sm-3 control-label" %>
+            <div class="col-sm-9">
+              <%= school_class_form.text_field :number, class: "form-control" %>
+            </div>
+          </div>
+          <div class="row form-group">
+            <%= school_class_form.label :classroom, 'Sala:', class: "col-sm-3 control-label" %>
+            <div class="col-sm-9">
+              <%= school_class_form.text_field :classroom, class: "form-control" %>
+            </div>
+          </div>
+          <div class="row form-group">
+            <%= school_class_form.label :grade, 'Série/Ano:', class: "col-sm-3 control-label" %>
+            <div class="col-sm-9">
+              <%= school_class_form.text_field :grade, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <div class="row form-group">
+            <%= school_class_form.label :notes, 'Observações:', class: "col-sm-3 control-label" %>
+            <div class="col-sm-9">
+              <%= school_class_form.text_area :notes, class: "form-control"%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

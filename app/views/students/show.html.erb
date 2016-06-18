@@ -1,11 +1,4 @@
-<div class="row">
-  <% if flash[:notice] != nil %>
-    <div class= "alert alert-success col-lg-offset-4 col-lg-4 centralize">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <p id="notice"><%= notice %></p>
-    </div>
-  <%end%>
-</div>
+<%= render "layouts/flash_messages" %>
 <div class="row form-group">
   <%= link_to "Editar Aluno", edit_student_path, class: "btn btn-primary" %>
   <button type="button" class="btn btn-default btn-danger" aria-label="Left Align" data-toggle="modal" data-target="#confirm-delete-modal">Remover Aluno</button>

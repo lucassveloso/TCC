@@ -1,0 +1,17 @@
+<div class="modal fade" id="confirm-delete-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Excluir Turma</h4>
+        </div>
+        <div class="modal-body">
+          <span> Você tem certeza que deseja excluir a turma <%= @school_class.number %>? </span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+          <%= link_to "Remover Turma", @school_class, :method => "delete", class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>

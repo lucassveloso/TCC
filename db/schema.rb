@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616040326) do
+ActiveRecord::Schema.define(version: 20160618053720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,6 +131,14 @@ ActiveRecord::Schema.define(version: 20160616040326) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "school_classes_teachers", force: :cascade do |t|
+    t.integer "school_class_id"
+    t.integer "teacher_id"
+  end
+
+  add_index "school_classes_teachers", ["school_class_id"], name: "index_school_classes_teachers_on_school_class_id", using: :btree
+  add_index "school_classes_teachers", ["teacher_id"], name: "index_school_classes_teachers_on_teacher_id", using: :btree
+
   create_table "students", force: :cascade do |t|
     t.integer  "person_id"
     t.integer  "nis_number"
@@ -155,13 +163,5 @@ ActiveRecord::Schema.define(version: 20160616040326) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
-
-  create_table "teachers_school_classes", force: :cascade do |t|
-    t.integer "school_class_id"
-    t.integer "teacher_id"
-  end
-
-  add_index "teachers_school_classes", ["school_class_id"], name: "index_teachers_school_classes_on_school_class_id", using: :btree
-  add_index "teachers_school_classes", ["teacher_id"], name: "index_teachers_school_classes_on_teacher_id", using: :btree
 
 end

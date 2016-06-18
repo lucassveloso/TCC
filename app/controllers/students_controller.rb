@@ -3,10 +3,12 @@ class StudentsController < ApplicationController
   before_action :set_school_classes, only: [:new, :edit, :create]
   before_action :set_authorizations, :set_additional_activities, only: [:show, :new, :edit, :create]
   before_action :set_new_student, only: [:new]
+
   def index
+    @students = Student.joins(:person, :school_class)
     respond_to do |format|
       format.html
-      format.json { render json: StudentDatatable.new(view_context) }
+      format.json { render json: StudentDatatable.new(view_context, {students: @students}) }
     end
   end
 

@@ -1,0 +1,12 @@
+<%= render "layouts/flash_messages" %>
+<div class="row form-group">
+  <%= link_to "Editar Turma", edit_school_class_path, class: "btn btn-primary" %>
+  <button type="button" class="btn btn-default btn-danger" aria-label="Left Align" data-toggle="modal" data-target="#confirm-delete-modal">Remover Turma</button>
+ </div>
+<div class="panel-group row" role="tablist" aria-multiselectable="true">
+  <%= render 'show_school_class' %>
+  <%= render 'show_teachers_school_class' %>
+  <%= render 'show_students_school_class' %>
+</div>
+
+<%= render "delete_school_class_modal" %>
