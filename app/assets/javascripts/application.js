@@ -19,6 +19,7 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/extras/dataTables.responsive
 //= require dataTables/jquery.dataTables
+//= require cloudinary_all
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
