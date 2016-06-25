@@ -3,16 +3,11 @@ require 'rails_helper'
 describe Student, type: :model do
   describe 'validation' do
     before :each do
-      @student = Student.new(person: Person.new, nis_number: 123, school_class: SchoolClass.new)
+      @student = Student.new(person: Person.new, nis_number: 123)
     end
 
     it 'should require a person' do
       @student.person = nil
-      expect(@student).to_not be_valid
-    end
-
-    it 'should require a school class' do
-      @student.school_class = nil
       expect(@student).to_not be_valid
     end
 

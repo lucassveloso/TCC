@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :teachers
   resources :school_classes
   resources :responsibles
+  get "autocomplete/school_classes/students" => "school_classes#search_students"
 end

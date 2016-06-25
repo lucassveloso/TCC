@@ -12,7 +12,7 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <div class="row">
             <label>Turma: </label>
-            <span><%= link_to(@student.school_class.number, school_class_path(@student.school_class)) %></span>
+            <span><%= link_to(@student.school_class.number, school_class_path(@student.school_class)) unless @student.school_class.nil? %></span>
           </div>
           <div class="row">
             <label>Número NIS: </label>

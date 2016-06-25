@@ -1,0 +1,46 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" href="#collapse-school-class" aria-expanded="true" aria-controls="collapseOne">
+        Alunos
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-school-class" class="panel-collapse collapse in" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="row panel-body">
+        <div class="inner-addon left-addon">
+          <i class="glyphicon glyphicon-search"></i>
+          <input type="text" id="students-search-txt" class="form-control" placeholder="Buscar aluno por nome ou nº NIS...">
+        </div>
+      </div>
+      <div class="row panel-body">
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <td class="active">Nome</td>
+                <td class="active">Gênero</td>
+                <td class="active">Nº Nis:</td>
+                <td class="active">Turma (Atual):</td>
+                <td class="active">Ação:</td>
+              </tr>
+            </thead>
+            <tbody id="table-students">
+              <% @school_class.students.each_with_index do |student, index| %>
+              <tr>
+                <input type="hidden" class="student_id" name="students_ids[<%= index %>]" value="<%= student.id %>">
+                <td><%= student.person.name %></td>
+                <td><%= student.person.genre %></td>
+                <td><%= student.nis_number %></td>
+                <td><%= student.school_class.number %></td>
+                <td><a class="glyphicon glyphicon-remove remove-student">Remover</a></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
