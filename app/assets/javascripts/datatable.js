@@ -4,8 +4,6 @@ DATATABLE.createDataTables=  function createDataTables(){
     $('.dataTable').dataTable({
         "processing": true,
         "serverSide": true,
-        "bJQueryUI": true,
-        "scrollY": 400,
         "ajax": $('.dataTable').data('source'),
         "pagingType": "full_numbers",
         "oLanguage": {

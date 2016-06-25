@@ -8,7 +8,9 @@
   </div>
 <% end %>
 
-<%= render 'form_school_class', school_class_form:school_class_form %>
-<%= render 'form_students_school_class' %>
+<div class="panel-group row" id="accordion" role="tablist" aria-multiselectable="true">
+  <%= render 'form_school_class', school_class_form:school_class_form %>
+  <%= render 'form_students_school_class' %>
+</div>
 
 

@@ -16,9 +16,7 @@
 //= require jquery.mask.min
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
-//= require dataTables/jquery.dataTables
 //= require dataTables/extras/dataTables.responsive
-//= require dataTables/jquery.dataTables
 //= require cloudinary_all
 //= require turbolinks
 //= require bootstrap-sprockets
