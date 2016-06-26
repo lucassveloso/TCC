@@ -3,7 +3,6 @@ var DATATABLE = DATATABLE || {}
 DATATABLE.createDataTables=  function createDataTables(){
     $('.dataTable').each(function(){
         $(this).dataTable({
-        "processing": true,
         "serverSide": true,
         "ajax": $(this).data('source'),
         "pagingType": "full_numbers",

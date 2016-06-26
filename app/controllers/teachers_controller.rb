@@ -3,7 +3,7 @@ class TeachersController < ApplicationController
   before_action :set_new_teacher, only: [:new]
 
   def index
-    @teachers = Teacher.all.includes(:person)
+    @teachers = Teacher.includes(:person).references(:person)
     respond_to do |format|
       format.html
       format.json { render json: TeacherDatatable.new(view_context, {teachers: @teachers}) }

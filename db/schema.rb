@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623012327) do
+ActiveRecord::Schema.define(version: 20160626234403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 20160623012327) do
   end
 
   create_table "identity_documents", force: :cascade do |t|
-    t.integer  "identity_number"
+    t.string   "identity_number"
     t.date     "dispatch_date"
     t.string   "federation_unit"
     t.string   "dispatcher_organ"
@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 20160623012327) do
   add_index "responsibles_students", ["student_id"], name: "index_responsibles_students_on_student_id", using: :btree
 
   create_table "school_classes", force: :cascade do |t|
-    t.integer  "number"
+    t.string   "number"
     t.string   "classroom"
     t.string   "grade"
     t.string   "notes"
@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 20160623012327) do
 
   create_table "students", force: :cascade do |t|
     t.integer  "person_id"
-    t.integer  "nis_number"
+    t.string   "nis_number"
     t.date     "entry_date"
     t.string   "special_needs"
     t.string   "teaching_step"
@@ -154,7 +154,7 @@ ActiveRecord::Schema.define(version: 20160623012327) do
 
   create_table "teachers", force: :cascade do |t|
     t.integer  "person_id"
-    t.integer  "registration_number"
+    t.string   "registration_number"
     t.string   "notes"
     t.string   "time_load"
     t.string   "subject"
