@@ -18,6 +18,7 @@ class TeachersController < ApplicationController
 
   def create
     @teacher = Teacher.new(teacher_params)
+    add_school_classes
     respond_to do |format|
       if @teacher.save
         format.html { redirect_to @teacher , notice: 'Professor cadastrado com sucesso' }
@@ -33,6 +34,7 @@ class TeachersController < ApplicationController
   def update
     respond_to do |format|
       if @teacher.update(teacher_params)
+        add_school_classes
         format.html { redirect_to @teacher , notice: 'Alterações realizadas com sucesso' }
       else
         format.html { render :edit }
@@ -53,6 +55,12 @@ class TeachersController < ApplicationController
         teachers = Teacher.search(params[:text_search]).includes(:person)
         format.json { render json: teachers, :include => [:person]}
       end
+    end
+  end
+
+  def show_school_classes
+    respond_to do |format|
+      format.json { render json: SchoolClassDatatable.new(view_context, {school_classes: set_school_classes})}
     end
   end
 
@@ -81,4 +89,13 @@ class TeachersController < ApplicationController
                                     ])
   end
 
+  def set_school_classes
+    @teacher = Teacher.find(params[:teacher_id])
+    SchoolClass.where(id: @teacher.school_classes.map(&:id))
+  end
+
+  def add_school_classes
+    @teacher.school_classes = []
+    @teacher.school_classes << SchoolClass.find(params[:school_classes_ids].values) if params[:school_classes_ids]
+  end
 end

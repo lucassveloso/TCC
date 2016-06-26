@@ -1,4 +1,4 @@
-class SchoolClassesDatatable < AjaxDatatablesRails::Base
+class SchoolClassDatatable < AjaxDatatablesRails::Base
   include Rails.application.routes.url_helpers
   include ActionView::Helpers::UrlHelper
 
@@ -23,6 +23,6 @@ class SchoolClassesDatatable < AjaxDatatablesRails::Base
   end
 
   def get_raw_records
-    SchoolClass.all
+    options[:school_classes]
   end
 end

@@ -5,6 +5,7 @@ var count = 0
 SEARCH.setAutocompletes = function setAutocompletes(){
   SEARCH.setAutocompleteStudent();
   SEARCH.setAutocompleteTeacher();
+  SEARCH.setAutocompleteSchoolClass();
   SEARCH.eventRemoveRowTable();
 }
 
@@ -44,6 +45,24 @@ SEARCH.setAutocompleteTeacher = function setAutocompleteTeacher(){
     });
 }
 
+SEARCH.setAutocompleteSchoolClass = function setAutocompleteSchoolClass(){
+  $("#school_classes-autocomplete").autocomplete({
+        minLength: 2,
+        source:function (request, response){
+            SEARCH.search(request, response, "/school_classes_search");
+        },
+        select:function(event, ui){
+            event.preventDefault();
+            $("#school_classes-autocomplete").val("");
+            SEARCH.addSchoolClassTable(ui.item.value);
+        },
+        focus: function(event, ui) {
+            event.preventDefault();
+            $(this).val(ui.item.label);
+        }
+    });
+}
+
 SEARCH.search = function search(request, response, url){
   $.ajax({
     dataType: "json",
@@ -66,7 +85,7 @@ SEARCH.search = function search(request, response, url){
         var result_list = [];
         for(var i = 0; i< data.length; i++){
             var result = {
-                label : data[i].person.name,
+                label : (url.indexOf('school_classes') > -1) ? data[i].number : data[i].person.name,
                 value : data[i]
             };
             result_list.push(result);
@@ -111,6 +130,24 @@ SEARCH.addTeacherTable = function addTeacherTable(teacher){
                                     <td>'+subject+'</td>\
                                     <td>'+teacher.registration_number+'</td>\
                                     <td>'+time_load+'</td>\
+                                    <td><a class="glyphicon glyphicon-remove remove-row">Remover</a></td>\
+                                  </tr>'
+                                );
+    count++
+  }
+  SEARCH.eventRemoveRowTable();
+}
+
+SEARCH.addSchoolClassTable = function addSchoolClassTable(school_class){
+  identical_school_classes = $.grep($(".school_class_id"), function(item) {
+      return item.value == school_class.id;
+  });
+  if(identical_school_classes.length == 0){
+    $("#table-school_classes").append(' <tr>\
+                                    <input type="hidden" class="school_class_id" name="school_classes_ids['+count+']" value="'+school_class.id+'">\
+                                    <td>'+school_class.number+'</td>\
+                                    <td>'+school_class.classroom+'</td>\
+                                    <td>'+school_class.grade+'</td>\
                                     <td><a class="glyphicon glyphicon-remove remove-row">Remover</a></td>\
                                   </tr>'
                                 );

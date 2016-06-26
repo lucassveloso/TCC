@@ -8,6 +8,7 @@
   <%= render 'show_teacher' %>
   <%= render 'addresses/show_address', address: @teacher.person.address unless @teacher.person.address.nil? %>
   <%= render 'documents/show_documents', document: @teacher.person.document unless @teacher.person.document.nil? %>
+  <%= render 'school_classes/show_school_classes', path: teacher_show_school_classes_path(@teacher, format: :json) %>
 </div>
 
 <%= render "delete_teacher_modal" %>

@@ -2,9 +2,10 @@ class SchoolClassesController < ApplicationController
   before_action :set_school_class, only: [:show, :edit, :update, :destroy]
 
   def index
+    @school_classes = SchoolClass.all
     respond_to do |format|
       format.html
-      format.json { render json: SchoolClassesDatatable.new(view_context) }
+      format.json { render json: SchoolClassDatatable.new(view_context, {school_classes: @school_classes}) }
     end
   end
 
@@ -32,10 +33,10 @@ class SchoolClassesController < ApplicationController
   end
 
   def update
-    add_students
-    add_teachers
     respond_to do |format|
       if @school_class.update(school_class_params)
+        add_students
+        add_teachers
         format.html { redirect_to @school_class , notice: 'Alterações realizadas com sucesso' }
       else
         format.html { render :edit }
@@ -50,6 +51,15 @@ class SchoolClassesController < ApplicationController
         format.html { redirect_to school_classes_path, notice: "A Turma #{@school_class.number} foi removida com sucesso" }
       else
          format.html { redirect_to @school_class, flash: { error: "A Turma #{@school_class.number} não pode ser removida, existem alunos e/ou professores alocados" }}
+      end
+    end
+  end
+
+  def search_school_classes
+    respond_to do |format|
+      if request.xhr?
+        school_classes = SchoolClass.search(params[:text_search])
+        format.json { render json: school_classes}
       end
     end
   end
