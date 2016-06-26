@@ -10,7 +10,8 @@
 
 <div class="panel-group row" id="accordion" role="tablist" aria-multiselectable="true">
   <%= render 'form_school_class', school_class_form:school_class_form %>
-  <%= render 'form_students_school_class' %>
+  <%= render 'teachers/form_teachers', object: @school_class %>
+  <%= render 'students/form_students', object: @school_class %>
 </div>
 
 

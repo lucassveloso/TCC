@@ -11,7 +11,7 @@
       <div class="row panel-body">
         <div class="inner-addon left-addon">
           <i class="glyphicon glyphicon-search"></i>
-          <input type="text" id="students-search-txt" class="form-control" placeholder="Buscar aluno por nome ou nº NIS...">
+          <input type="text" id="students-autocomplete" class="form-control" placeholder="Buscar aluno por nome ou nº NIS...">
         </div>
       </div>
       <div class="row panel-body">
@@ -27,14 +27,14 @@
               </tr>
             </thead>
             <tbody id="table-students">
-              <% @school_class.students.each_with_index do |student, index| %>
+              <% object.students.each_with_index do |student, index| %>
               <tr>
                 <input type="hidden" class="student_id" name="students_ids[<%= index %>]" value="<%= student.id %>">
                 <td><%= student.person.name %></td>
                 <td><%= student.person.genre %></td>
                 <td><%= student.nis_number %></td>
                 <td><%= student.school_class.number %></td>
-                <td><a class="glyphicon glyphicon-remove remove-student">Remover</a></td>
+                <td><a class="glyphicon glyphicon-remove remove-row">Remover</a></td>
               </tr>
               <% end %>
             </tbody>

@@ -9,10 +9,6 @@ class SchoolClassesController < ApplicationController
   end
 
   def show
-    respond_to do |format|
-      format.html
-      format.json { render json: StudentDatatable.new(view_context, {students: set_students}) }
-    end
   end
 
   def new
@@ -22,6 +18,7 @@ class SchoolClassesController < ApplicationController
   def create
     @school_class = SchoolClass.new(school_class_params)
     add_students
+    add_teachers
     respond_to do |format|
       if @school_class.save
         format.html { redirect_to @school_class , notice: 'Turma cadastrada com sucesso' }
@@ -36,6 +33,7 @@ class SchoolClassesController < ApplicationController
 
   def update
     add_students
+    add_teachers
     respond_to do |format|
       if @school_class.update(school_class_params)
         format.html { redirect_to @school_class , notice: 'Alterações realizadas com sucesso' }
@@ -56,12 +54,15 @@ class SchoolClassesController < ApplicationController
     end
   end
 
-  def search_students
+  def show_students
     respond_to do |format|
-      if request.xhr?
-        students = Student.search(params[:text_search]).includes(:person, :school_class)
-        format.json { render json: students, :include => [:person,:school_class]}
-      end
+      format.json { render json: StudentDatatable.new(view_context, {students: set_students})}
+    end
+  end
+
+  def show_teachers
+    respond_to do |format|
+      format.json { render json: TeacherDatatable.new(view_context, {teachers: set_teachers})}
     end
   end
 
@@ -75,11 +76,22 @@ class SchoolClassesController < ApplicationController
   end
 
   def set_students
+    @school_class = SchoolClass.find(params[:school_class_id])
     Student.where(id: @school_class.students.map(&:id)).joins(:person, :school_class)
+  end
+
+  def set_teachers
+    @school_class = SchoolClass.find(params[:school_class_id])
+    Teacher.where(id: @school_class.teachers.map(&:id)).joins(:person)
   end
 
   def add_students
     @school_class.students = []
     @school_class.students << Student.find(params[:students_ids].values) if params[:students_ids]
+  end
+
+  def add_teachers
+    @school_class.teachers = []
+    @school_class.teachers << Teacher.find(params[:teachers_ids].values) if params[:teachers_ids]
   end
 end

@@ -5,8 +5,8 @@
  </div>
 <div class="panel-group row" id="accordion" role="tablist" aria-multiselectable="true">
   <%= render 'show_school_class' %>
-  <%= render 'show_teachers_school_class' %>
-  <%= render 'show_students_school_class' %>
+  <%= render 'teachers/show_teachers', path: school_class_show_teachers_path(@school_class, format: :json) %>
+  <%= render 'students/show_students', path: school_class_show_students_path(@school_class, format: :json) %>
 </div>
 
 <%= render "delete_school_class_modal" %>

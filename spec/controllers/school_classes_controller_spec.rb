@@ -116,33 +116,4 @@ RSpec.describe SchoolClassesController, type: :controller do
       end
     end
   end
-
-  describe '#search_students' do
-    before :each do
-      @student_db =  Student.create(id:1, nis_number: 123, person: Person.new(name:"Lucas", genre:"Male", birthdate: "1996-06-16"), school_class: SchoolClass.new(number:10, grade: "primary"))
-    end
-
-    context 'when request is in format XHR' do
-      context 'parameter text_search matches the name of a student' do
-        it 'is expect that response to be json with these students' do
-          xhr :get, :search_students, text_search: 'Lucas'
-          expect(response.body).to eq('['+@student_db.to_json({:include => [:person, :school_class]})+']')
-        end
-      end
-
-      context 'parameter text_search matches the nis_number of a student' do
-        it 'is expect that response to be json with these students' do
-          xhr :get, :search_students, text_search: '123'
-          expect(response.body).to eq('['+@student_db.to_json({:include => [:person, :school_class]})+']')
-        end
-      end
-
-      context 'parameter text_search dont matches the name and nis_number of a student' do
-        it 'is expect that response to be json empty' do
-          xhr :get, :search_students, text_search: 'João'
-          expect(response.body).to eq("[]")
-        end
-      end
-    end
-  end
 end

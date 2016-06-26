@@ -1,0 +1,13 @@
+<%= render "layouts/flash_messages" %>
+<div class="row form-group">
+  <%= link_to "Editar Professor", edit_teacher_path, class: "btn btn-primary" %>
+  <button type="button" class="btn btn-default btn-danger" aria-label="Left Align" data-toggle="modal" data-target="#confirm-delete-modal">Remover Professor</button>
+ </div>
+<div class="panel-group row" id="accordion" role="tablist" aria-multiselectable="true">
+  <%= render 'people/show_person', person: @teacher.person %>
+  <%= render 'show_teacher' %>
+  <%= render 'addresses/show_address', address: @teacher.person.address unless @teacher.person.address.nil? %>
+  <%= render 'documents/show_documents', document: @teacher.person.document unless @teacher.person.document.nil? %>
+</div>
+
+<%= render "delete_teacher_modal" %>

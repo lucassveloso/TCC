@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   root 'home#index'
-  resources :students
-  resources :teachers
-  resources :school_classes
-  resources :responsibles
-  get "autocomplete/school_classes/students" => "school_classes#search_students"
+  resources :students, :teachers, :responsibles
+  resources :school_classes do
+    get :show_teachers
+    get :show_students
+  end
+  get "students_search" => "students#search_students"
+  get "teachers_search" => "teachers#search_teachers"
 end

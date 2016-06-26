@@ -1,0 +1,18 @@
+<%= render "layouts/flash_messages" %>
+<div class="row form-group">
+  <%= link_to "Cadastrar Professor", new_teacher_path, class: "btn btn-primary" %>
+</div>
+<div class="row">
+  <table id="teachers-table" data-source="<%= teachers_path(format: :json) %>" class="table table-striped table-bordered display responsive no-wrap dataTable">
+    <thead>
+      <tr>
+        <th>Nome:</th>
+        <th>Disciplina:</th>
+        <th>Matrícula:</th>
+        <th>Carga Horária:</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>

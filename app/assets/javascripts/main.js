@@ -4,8 +4,7 @@ ready = function ready(){
     DATATABLE.createDataTables();
     MASKS.addMasks();
     CLOUDINARY.setUploadWidget();
-
-    SCHOOL_CLASSES.searchStudent();
+    SEARCH.setAutocompletes();
 }
 
 $(document).ready(ready);

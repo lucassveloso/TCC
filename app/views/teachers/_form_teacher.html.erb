@@ -1,0 +1,55 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-school-data" aria-expanded="true" aria-controls="collapseOne">
+        Dados Funcionais
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-school-data" class="panel-collapse collapse" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="row panel-body">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <div class="row form-group">
+            <%= teacher_form.label :registration_number, 'Matrícula:', class: "col-sm-3 control-label" %>
+            <div class="col-sm-9">
+              <%= teacher_form.text_field :registration_number, class: "form-control" %>
+            </div>
+          </div>
+          <div class="row form-group">
+            <%= teacher_form.label :subject, 'Disciplina:', class: "col-sm-3 control-label" %>
+            <div class="col-sm-9">
+              <%= teacher_form.text_field :subject, class: "form-control" %>
+            </div>
+          </div>
+          <div class="row form-group">
+            <%= teacher_form.label :time_load, 'Carga Horária:', class: "col-sm-3 control-label" %>
+            <div class="col-sm-9">
+              <%= teacher_form.text_field :time_load, class: "form-control" %>
+            </div>
+          </div>
+          <div class="row form-group">
+            <%= teacher_form.label :admission_date, 'Data de Admissão:', class: "col-sm-3 control-label" %>
+            <div class="col-sm-9">
+              <%= teacher_form.date_field :admission_date, class: 'form-control date-mask' %>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <div class="row form-group">
+            <%= teacher_form.label :qualifications, 'Qualificações:', class: "col-sm-3 control-label" %>
+            <div class="col-sm-9">
+              <%= teacher_form.text_area :qualifications, class: "form-control" %>
+            </div>
+          </div>
+          <div class="row form-group">
+            <%= teacher_form.label :notes, 'Observações:', class: "col-sm-3 control-label" %>
+            <div class="col-sm-9">
+              <%= teacher_form.text_area :notes, class: "form-control"%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

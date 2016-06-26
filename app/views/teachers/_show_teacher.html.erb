@@ -1,0 +1,43 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-school-data" aria-expanded="true" aria-controls="collapseOne">
+        Dados Funcionais
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-school-data" class="panel-collapse collapse" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="row panel-body">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <div class="row">
+            <label>Matrícula: </label>
+            <span><%= @teacher.registration_number %></span>
+          </div>
+          <div class="row">
+            <label>Disciplina: </label>
+            <span><%= @teacher.subject %></span>
+          </div>
+          <div class="row">
+            <label>Carga Horária: </label>
+            <span><%= @teacher.time_load %></span>
+          </div>
+          <div class="row">
+            <label>Data de Admissão: </label>
+            <span><%= @teacher.admission_date %></span>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <div class="row">
+            <label>Qualificações: </label>
+            <span><%= @teacher.qualifications %></span>
+          </div>
+          <div class="row">
+            <label>Observações: </label>
+            <span><%= @teacher.notes %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

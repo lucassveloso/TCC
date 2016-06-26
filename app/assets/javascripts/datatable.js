@@ -1,10 +1,11 @@
 var DATATABLE = DATATABLE || {}
 
 DATATABLE.createDataTables=  function createDataTables(){
-    $('.dataTable').dataTable({
+    $('.dataTable').each(function(){
+        $(this).dataTable({
         "processing": true,
         "serverSide": true,
-        "ajax": $('.dataTable').data('source'),
+        "ajax": $(this).data('source'),
         "pagingType": "full_numbers",
         "oLanguage": {
                 "sEmptyTable": "Nenhum registro encontrado",
@@ -30,4 +31,5 @@ DATATABLE.createDataTables=  function createDataTables(){
                 }
             }
      });
+    });
 }

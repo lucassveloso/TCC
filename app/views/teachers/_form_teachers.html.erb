@@ -1,0 +1,46 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-teachers" aria-expanded="true" aria-controls="collapseOne">
+        Professores
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-teachers" class="panel-collapse collapse" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="row panel-body">
+        <div class="inner-addon left-addon">
+          <i class="glyphicon glyphicon-search"></i>
+          <input type="text" id="teachers-autocomplete" class="form-control" placeholder="Buscar professor por nome ou matrícula...">
+        </div>
+      </div>
+      <div class="row panel-body">
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <td class="active">Nome</td>
+                <td class="active">Disciplina</td>
+                <td class="active">Matrícula</td>
+                <td class="active">Carga Horária:</td>
+                <td class="active">Ação:</td>
+              </tr>
+            </thead>
+            <tbody id="table-teachers">
+              <% object.teachers.each_with_index do |teacher, index| %>
+              <tr>
+                <input type="hidden" class="teacher_id" name="teachers_ids[<%= index %>]" value="<%= teacher.id %>">
+                <td><%= teacher.person.name %></td>
+                <td><%= teacher.subject %></td>
+                <td><%= teacher.registration_number %></td>
+                <td><%= teacher.time_load %></td>
+                <td><a class="glyphicon glyphicon-remove remove-row">Remover</a></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

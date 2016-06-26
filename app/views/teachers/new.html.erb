@@ -1,0 +1,13 @@
+<div class="text-center">
+  <h1>Cadastrar Professor</h1>
+</div>
+<%= form_for(@teacher, :html=>{:id=>"form-teacher"}) do |teacher_form| %>
+<%= render 'form', teacher_form:teacher_form %>
+<div class="row">
+  <div class="form-group">
+    <div class="col-lg-offset-4 col-lg-4 margin-end-top margin-end-bot">
+      <%= teacher_form.submit "Criar Professor", :class => "btn btn-default btn-lg btn-block btn-primary", id: "confirm-teacher" %>
+    </div>
+  </div>
+</div>
+<% end %>

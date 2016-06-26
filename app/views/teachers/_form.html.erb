@@ -1,0 +1,26 @@
+<% if @teacher.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <% @teacher.errors.messages.each do |msg| %>
+        <li><%= msg[1][0] %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="panel-group row" id="accordion" role="tablist" aria-multiselectable="true">
+<%= teacher_form.fields_for :person do |person_form| %>
+  <%= render 'people/form_person', person_form:person_form %>
+
+  <%= render 'form_teacher', teacher_form:teacher_form %>
+
+  <%= person_form.fields_for :address do |address_form| %>
+    <%= render 'addresses/form_address', address_form:address_form %>
+  <% end %>
+
+  <%= person_form.fields_for :document do |documents_form| %>
+    <%= render 'documents/form_documents', documents_form:documents_form %>
+  <% end %>
+<% end %>
+</div>
+
+

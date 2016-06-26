@@ -49,6 +49,15 @@ class StudentsController < ApplicationController
     end
   end
 
+  def search_students
+    respond_to do |format|
+      if request.xhr?
+        students = Student.search(params[:text_search]).includes(:person, :school_class)
+        format.json { render json: students, :include => [:person,:school_class]}
+      end
+    end
+  end
+
   private
   def set_student
     @student = Student.where(id: params[:id]).present? ? Student.find(params[:id]) : (redirect_to "/404")
