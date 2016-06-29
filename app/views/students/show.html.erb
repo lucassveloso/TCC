@@ -8,7 +8,7 @@
   <%= render 'show_student' %>
   <%= render 'addresses/show_address', address: @student.person.address unless @student.person.address.nil? %>
   <%= render 'documents/show_documents', document: @student.person.document unless @student.person.document.nil? %>
-  <%= render 'responsibles/show_responsibles', responsibles: @student.responsibles %>
+  <%= render 'guardians/show_guardians', guardians: @student.guardians %>
 </div>
 
 <%= render "delete_student_modal" %>

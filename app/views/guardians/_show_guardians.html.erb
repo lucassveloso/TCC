@@ -1,12 +1,12 @@
 <div class="panel panel-default">
   <div class="panel-heading" role="tab">
     <h4 class="panel-title">
-      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-responsibles" aria-expanded="true" aria-controls="collapseOne">
+      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-guardians" aria-expanded="true" aria-controls="collapseOne">
         Responsáveis
       </a>
     </h4>
   </div>
-  <div id="collapse-responsibles" class="panel-collapse collapse" role="tabpanel" aria-spanledby="headingOne">
+  <div id="collapse-guardians" class="panel-collapse collapse" role="tabpanel" aria-spanledby="headingOne">
     <div class="panel-body">
        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <div class="table-responsive">
@@ -17,12 +17,12 @@
                 <td class="active">Telefone</td>
                 <td class="active">Celular</td>
               </tr>
-            <% responsibles.each do |responsible| %>
+            <% guardians.each do |guardian| %>
               <tr>
-                <td><%= link_to(responsible.person.name, responsible_path(responsible)) %></td>
-                <td><%= responsible.kinship %></td>
-                <td><%= responsible.person.phone %></td>
-                <td><%= responsible.person.cellphone %></td>
+                <td><%= link_to(guardian.person.name, guardian_path(guardian)) %></td>
+                <td><%= guardian.kinship %></td>
+                <td><%= guardian.person.phone %></td>
+                <td><%= guardian.person.cellphone %></td>
               </tr>
             <% end %>
             </table>

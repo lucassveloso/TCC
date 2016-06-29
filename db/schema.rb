@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160626234403) do
+ActiveRecord::Schema.define(version: 20160629005053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,21 @@ ActiveRecord::Schema.define(version: 20160626234403) do
     t.integer  "certificate_id"
   end
 
+  create_table "guardians", force: :cascade do |t|
+    t.integer  "person_id"
+    t.string   "kinship"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "guardians_students", force: :cascade do |t|
+    t.integer "guardian_id"
+    t.integer "student_id"
+  end
+
+  add_index "guardians_students", ["guardian_id"], name: "index_guardians_students_on_guardian_id", using: :btree
+  add_index "guardians_students", ["student_id"], name: "index_guardians_students_on_student_id", using: :btree
+
   create_table "identity_documents", force: :cascade do |t|
     t.string   "identity_number"
     t.date     "dispatch_date"
@@ -106,21 +121,6 @@ ActiveRecord::Schema.define(version: 20160626234403) do
     t.string   "photo_url"
     t.integer  "document_id"
   end
-
-  create_table "responsibles", force: :cascade do |t|
-    t.integer  "person_id"
-    t.string   "kinship"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "responsibles_students", force: :cascade do |t|
-    t.integer "responsible_id"
-    t.integer "student_id"
-  end
-
-  add_index "responsibles_students", ["responsible_id"], name: "index_responsibles_students_on_responsible_id", using: :btree
-  add_index "responsibles_students", ["student_id"], name: "index_responsibles_students_on_student_id", using: :btree
 
   create_table "school_classes", force: :cascade do |t|
     t.string   "number"

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
-  resources :students, :responsibles
+  resources :students, :guardians
   resources :teachers do
     get :show_school_classes
   end

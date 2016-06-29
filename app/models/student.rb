@@ -1,7 +1,7 @@
 class Student < ActiveRecord::Base
   belongs_to :person, dependent: :destroy
   belongs_to :school_class
-  has_and_belongs_to_many :responsibles
+  has_and_belongs_to_many :guardians
   has_and_belongs_to_many :authorizations
   has_and_belongs_to_many :additional_activities
   validates :person, presence: true
