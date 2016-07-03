@@ -1,9 +1,10 @@
 class Student < ActiveRecord::Base
   belongs_to :person, dependent: :destroy
   belongs_to :school_class
-  has_and_belongs_to_many :guardians
   has_and_belongs_to_many :authorizations
   has_and_belongs_to_many :additional_activities
+  has_many :kinships
+  has_many :guardians, through: :kinships
   validates :person, presence: true
   validates :nis_number, presence: true, if: :bolsa_familia?
 

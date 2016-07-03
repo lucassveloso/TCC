@@ -1,0 +1,51 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-kinships" aria-expanded="true" aria-controls="collapseOne">
+        Responsáveis
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-kinships" class="panel-collapse collapse" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="row panel-body">
+        <div class="inner-addon left-addon">
+          <i class="glyphicon glyphicon-search"></i>
+          <input type="text" id="guardians-autocomplete" class="form-control" placeholder="Buscar responsável por nome...">
+        </div>
+      </div>
+      <div class="row panel-body">
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <td class="active">Parentesco</td>
+                <td class="active">Nome</td>
+                <td class="active">Gênero</td>
+                <td class="active">Telefone:</td>
+                <td class="active">Celular:</td>
+                <td class="active">Ação:</td>
+              </tr>
+            </thead>
+            <tbody id="table-kinships">
+              <% object.kinships.each_with_index do |kinship, index| %>
+              <tr>
+                <input type="hidden" class="guardian_id" name="guardians_ids[<%= index %>]" value="<%=  kinship.guardian.id %>">
+                <td>
+                  <input class="form-control" placeholder="Exemplo: Pai/Filha" type="text" name="kinships[<%= index %>]"
+                  value="<%= kinship.kinship %>"/>
+                </td>
+                <td><%= kinship.guardian.person.name %></td>
+                <td><%= kinship.guardian.person.genre %></td>
+                <td><%= kinship.guardian.person.phone %></td>
+                <td><%= kinship.guardian.person.cellphone %></td>
+                <td><a class="glyphicon glyphicon-remove remove-row">Remover</a></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

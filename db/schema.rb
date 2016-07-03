@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629005053) do
+ActiveRecord::Schema.define(version: 20160630022231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,18 +82,9 @@ ActiveRecord::Schema.define(version: 20160629005053) do
 
   create_table "guardians", force: :cascade do |t|
     t.integer  "person_id"
-    t.string   "kinship"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "guardians_students", force: :cascade do |t|
-    t.integer "guardian_id"
-    t.integer "student_id"
-  end
-
-  add_index "guardians_students", ["guardian_id"], name: "index_guardians_students_on_guardian_id", using: :btree
-  add_index "guardians_students", ["student_id"], name: "index_guardians_students_on_student_id", using: :btree
 
   create_table "identity_documents", force: :cascade do |t|
     t.string   "identity_number"
@@ -103,6 +94,17 @@ ActiveRecord::Schema.define(version: 20160629005053) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
+
+  create_table "kinships", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "guardian_id"
+    t.string   "kinship"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "kinships", ["guardian_id"], name: "index_kinships_on_guardian_id", using: :btree
+  add_index "kinships", ["student_id"], name: "index_kinships_on_student_id", using: :btree
 
   create_table "people", force: :cascade do |t|
     t.string   "name"

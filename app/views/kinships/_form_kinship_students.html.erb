@@ -1,0 +1,51 @@
+<div class="panel panel-default">
+  <div class="panel-heading" role="tab">
+    <h4 class="panel-title">
+      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-kinships" aria-expanded="true" aria-controls="collapseOne">
+        Alunos
+      </a>
+    </h4>
+  </div>
+  <div id="collapse-kinships" class="panel-collapse collapse" role="tabpanel" aria-spanledby="headingOne">
+    <div class="panel-body">
+      <div class="row panel-body">
+        <div class="inner-addon left-addon">
+          <i class="glyphicon glyphicon-search"></i>
+          <input type="text" id="students-autocomplete" class="form-control" placeholder="Buscar aluno por nome ou nº NIS...">
+        </div>
+      </div>
+      <div class="row panel-body">
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <td class="active">Parentesco</td>
+                <td class="active">Nome</td>
+                <td class="active">Gênero</td>
+                <td class="active">Nº Nis:</td>
+                <td class="active">Turma (Atual):</td>
+                <td class="active">Ação:</td>
+              </tr>
+            </thead>
+            <tbody id="table-kinships">
+              <% object.kinships.each_with_index do |kinship, index| %>
+              <tr>
+                <input type="hidden" class="student_id" name="students_ids[<%= index %>]" value="<%=  kinship.student.id %>">
+                <td>
+                  <input class="form-control" placeholder="Exemplo: Pai/Filha" type="text" name="kinships[<%= index %>]"
+                  value="<%= kinship.kinship %>"/>
+                </td>
+                <td><%= kinship.student.person.name %></td>
+                <td><%= kinship.student.person.genre %></td>
+                <td><%= kinship.student.nis_number %></td>
+                <td><%= kinship.student.school_class.number unless  kinship.student.school_class.nil? %></td>
+                <td><a class="glyphicon glyphicon-remove remove-row">Remover</a></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

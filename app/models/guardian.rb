@@ -1,7 +1,15 @@
 class Guardian < ActiveRecord::Base
   belongs_to :person, dependent: :destroy
-  has_and_belongs_to_many :students
+  has_many :kinships
+  has_many :students, through: :kinships
   validates :person, presence: true
-  validates :kinship, presence: true
-  validates :students, presence: true
+
+  accepts_nested_attributes_for :person
+
+  include PgSearch
+  pg_search_scope :search, ignoring: :accents,
+  associated_against: {
+       person: [:name]
+     },
+  using: {tsearch: {prefix: true, dictionary: "simple"}}
 end

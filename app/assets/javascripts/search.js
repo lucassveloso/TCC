@@ -6,7 +6,27 @@ SEARCH.setAutocompletes = function setAutocompletes(){
   SEARCH.setAutocompleteStudent();
   SEARCH.setAutocompleteTeacher();
   SEARCH.setAutocompleteSchoolClass();
+  SEARCH.setAutocompleteGuardian();
   SEARCH.eventRemoveRowTable();
+}
+
+SEARCH.setAutocompleteGuardian = function setAutocompleteGuardian(){
+  $("#guardians-autocomplete").autocomplete({
+        minLength: 2,
+        source:function (request, response){
+            SEARCH.search(request, response, "/guardians_search");
+        },
+        select:function(event, ui){
+            event.preventDefault();
+            $("#guardians-autocomplete").val("");
+            SEARCH.addGuardianKinshipTable(ui.item.value);
+        },
+        focus: function(event, ui) {
+            event.preventDefault();
+            $(this).val(ui.item.label);
+        }
+
+    });
 }
 
 SEARCH.setAutocompleteStudent = function setAutocompleteStudent(){
@@ -18,7 +38,11 @@ SEARCH.setAutocompleteStudent = function setAutocompleteStudent(){
         select:function(event, ui){
             event.preventDefault();
             $("#students-autocomplete").val("");
-            SEARCH.addStudentTable(ui.item.value);
+            if($(location).attr('pathname').indexOf('guardian') > -1){
+              SEARCH.addStudentKinshipTable(ui.item.value);
+            }else{
+              SEARCH.addStudentTable(ui.item.value);
+            }
         },
         focus: function(event, ui) {
             event.preventDefault();
@@ -109,6 +133,48 @@ SEARCH.addStudentTable = function addStudentTable(student){
                                     <td>'+student.person.genre+'</td>\
                                     <td>'+nis_number+'</td>\
                                     <td>'+school_class_number+'</td>\
+                                    <td><a class="glyphicon glyphicon-remove remove-row">Remover</a></td>\
+                                  </tr>'
+                                );
+    count++
+  }
+  SEARCH.eventRemoveRowTable();
+}
+
+SEARCH.addStudentKinshipTable = function addStudentKinshipTable(student){
+  identical_students = $.grep($(".student_id"), function(item) {
+      return item.value == student.id;
+  });
+  if(identical_students.length == 0){
+    nis_number = student.nis_number || "";
+    school_class_number = student.school_class ? student.school_class.number : "";
+    $("#table-kinships").append(' <tr>\
+                                    <input type="hidden" class="student_id" name="students_ids['+count+']" value="'+student.id+'">\
+                                    <td><input class="form-control" placeholder="Exemplo: Pai/Filha" type="text" name="kinships['+count+']" ></td>\
+                                    <td>'+student.person.name+'</td>\
+                                    <td>'+student.person.genre+'</td>\
+                                    <td>'+nis_number+'</td>\
+                                    <td>'+school_class_number+'</td>\
+                                    <td><a class="glyphicon glyphicon-remove remove-row">Remover</a></td>\
+                                  </tr>'
+                                );
+    count++
+  }
+  SEARCH.eventRemoveRowTable();
+}
+
+SEARCH.addGuardianKinshipTable = function addGuardianKinshipTable(guardian){
+  identical_guardians = $.grep($(".guardian_id"), function(item) {
+      return item.value == guardian.id;
+  });
+  if(identical_guardians.length == 0){
+    $("#table-kinships").append(' <tr>\
+                                    <input type="hidden" class="guardian_id" name="guardians_ids['+count+']" value="'+guardian.id+'">\
+                                    <td><input class="form-control" placeholder="Exemplo: Pai/Filha" type="text" name="kinships['+count+']" ></td>\
+                                    <td>'+guardian.person.name+'</td>\
+                                    <td>'+guardian.person.genre+'</td>\
+                                    <td>'+guardian.person.phone+'</td>\
+                                    <td>'+guardian.person.cellphone+'</td>\
                                     <td><a class="glyphicon glyphicon-remove remove-row">Remover</a></td>\
                                   </tr>'
                                 );

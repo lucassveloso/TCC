@@ -20,6 +20,7 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new(student_params)
+    add_kinships if params[:guardians_ids]
     respond_to do |format|
       if @student.save
         format.html { redirect_to @student , notice: 'Aluno cadastrado com sucesso' }
@@ -35,6 +36,7 @@ class StudentsController < ApplicationController
   def update
     respond_to do |format|
       if @student.update(student_params)
+        add_kinships if params[:guardians_ids]
         format.html { redirect_to @student , notice: 'Alterações realizadas com sucesso' }
       else
         format.html { render :edit }
@@ -55,6 +57,12 @@ class StudentsController < ApplicationController
         students = Student.search(params[:text_search]).includes(:person, :school_class)
         format.json { render json: students, :include => [:person,:school_class]}
       end
+    end
+  end
+
+  def show_guardians
+    respond_to do |format|
+      format.json { render json: KinshipDatatable.new(view_context, {kinships: set_kinships, student?: false})}
     end
   end
 
@@ -94,5 +102,17 @@ class StudentsController < ApplicationController
 
   def set_additional_activities
     @additional_activities = AdditionalActivity.all
+  end
+
+  def set_kinships
+    @student = Student.find(params[:student_id])
+    Kinship.where(id: @student.kinships.map(&:id)).joins(guardian: :person)
+  end
+
+  def add_kinships
+    @student.kinships = []
+    params[:guardians_ids].each do |index, id_guardian|
+      @student.kinships.push(Kinship.new(guardian:Guardian.find(id_guardian), kinship: params[:kinships][index]))
+    end
   end
 end

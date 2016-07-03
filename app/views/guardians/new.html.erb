@@ -1,0 +1,13 @@
+<div class="text-center">
+  <h1>Cadastrar Responsável</h1>
+</div>
+<%= form_for(@guardian, :html=>{:id=>"form-guardian"}) do |guardian_form| %>
+<%= render 'form', guardian_form:guardian_form %>
+<div class="row">
+  <div class="form-group">
+    <div class="col-lg-offset-4 col-lg-4 margin-end-top margin-end-bot">
+      <%= guardian_form.submit "Criar Responsável", :class => "btn btn-default btn-lg btn-block btn-primary", id: "confirm-guardian" %>
+    </div>
+  </div>
+</div>
+<% end %>
