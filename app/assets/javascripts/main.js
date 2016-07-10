@@ -5,6 +5,7 @@ ready = function ready(){
     MASKS.addMasks();
     CLOUDINARY.setUploadWidget();
     SEARCH.setAutocompletes();
+    VALIDATION.eventsValidate();
 }
 
 $(document).ready(ready);

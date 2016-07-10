@@ -11,9 +11,11 @@
       <div class="row panel-body">
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <div class="row form-group">
-            <%= school_class_form.label :number, 'Número da Turma:', class: "col-sm-3 control-label" %>
+            <%= school_class_form.label :number, class: "col-sm-3 control-label" do %>
+              Número da Turma: <span class="mandatory">*</span>
+            <% end %>
             <div class="col-sm-9">
-              <%= school_class_form.text_field :number, class: "form-control" %>
+              <%= school_class_form.text_field :number, class: "form-control validate-empty" %>
             </div>
           </div>
           <div class="row form-group">
@@ -23,9 +25,11 @@
             </div>
           </div>
           <div class="row form-group">
-            <%= school_class_form.label :grade, 'Série/Ano:', class: "col-sm-3 control-label" %>
+            <%= school_class_form.label :grade, class: "col-sm-3 control-label" do %>
+              Série/Ano: <span class="mandatory">*</span>
+            <% end %>
             <div class="col-sm-9">
-              <%= school_class_form.text_field :grade, class: "form-control" %>
+              <%= school_class_form.text_field :grade, class: "form-control validate-empty" %>
             </div>
           </div>
         </div>

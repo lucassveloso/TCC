@@ -11,9 +11,11 @@
       <div class="row panel-body">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <div class="row form-group">
-            <%= teacher_form.label :registration_number, 'Matrícula:', class: "col-sm-3 control-label" %>
+            <%= teacher_form.label :registration_number, class: "col-sm-3 control-label" do %>
+              Matrícula: <span class="mandatory">*</span>
+            <% end %>
             <div class="col-sm-9">
-              <%= teacher_form.text_field :registration_number, class: "form-control" %>
+              <%= teacher_form.text_field :registration_number, class: "form-control validate-empty" %>
             </div>
           </div>
           <div class="row form-group">
