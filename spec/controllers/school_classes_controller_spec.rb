@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe SchoolClassesController, type: :controller do
+  before(:each) do
+    sign_in
+  end
+
   describe '#index' do
     context 'when request is in format JSON' do
       it 'is expected to be successfully response' do

@@ -1,4 +1,5 @@
 class TeachersController < ApplicationController
+  before_action :authorize
   before_action :set_teacher, only: [:show, :edit, :update, :destroy]
   before_action :set_new_teacher, only: [:new]
 

@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  before_action :authorize
   before_action :set_student, only: [:show, :edit, :update, :destroy]
   before_action :set_school_classes, only: [:new, :edit, :create]
   before_action :set_authorizations, :set_additional_activities, only: [:show, :new, :edit, :create]

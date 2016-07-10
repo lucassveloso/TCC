@@ -1,0 +1,25 @@
+<div class="form-horizontal">
+<%= render "layouts/flash_messages" %>
+
+  <div class="col-lg-12 text-center login-title">
+    <h4>Entre para continuar</h4>
+  </div>
+
+  <%= form_for(:session, url: sign_in_path, :html=>{:id=>"form-login"}) do |f| %>
+      <div class="form-group">
+      <div class="col-lg-offset-4 col-lg-4">
+        <%= f.text_field :email, :id => "email-session", :placeholder => "E-mail", :class => "form-control", autofocus: true %>
+      </div>
+      </div>
+      <div class="form-group">
+      <div class="col-lg-offset-4 col-lg-4">
+        <%= f.password_field :password, id: "password-session", :placeholder => "Senha", :class => "form-control", autocomplete: "off" %>
+      </div>
+      </div>
+      <div class="form-group">
+      <div class="col-lg-offset-4 col-lg-4">
+        <%= f.submit "Entrar", :class => "btn btn-default btn-lg btn-block btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -42,6 +42,7 @@ GEM
     arel (6.0.3)
     autoprefixer-rails (6.3.6.2)
       execjs
+    bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.6)
@@ -215,6 +216,7 @@ PLATFORMS
 DEPENDENCIES
   ajax-datatables-rails
   autoprefixer-rails
+  bcrypt
   bootstrap-sass
   byebug
   capybara

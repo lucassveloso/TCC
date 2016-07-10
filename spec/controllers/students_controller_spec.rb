@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe StudentsController, type: :controller do
+  before(:each) do
+    sign_in
+  end
+
   describe '#index' do
     before :each do
       @student_db1 =  Student.create(id:1, person: Person.new(name:"Lucas", genre:"Male", birthdate: "1996-06-16"), school_class: SchoolClass.new(number:10, grade: "primary"))

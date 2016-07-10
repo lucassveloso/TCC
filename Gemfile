@@ -15,6 +15,7 @@ gem 'autoprefixer-rails'
 gem 'jquery-datatables-rails', '~> 3.3.0'
 gem 'ajax-datatables-rails'
 gem 'pg_search', '1.0.5'
+gem 'bcrypt'
 
 
 group :development, :test do

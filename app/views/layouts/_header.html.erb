@@ -1,8 +1,16 @@
 <nav class="navbar navbar-default navbar-fixed-top header-style">
   <div class="container-fluid">
     <div class="navbar-header page-scroll">
-<a href="#menu-toggle" class="navbar-brand" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"/></a>
+      <a href="#menu-toggle" class="navbar-brand" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"/></a>
       <a class="navbar-brand logo" href="/">Home</a>
+
     </div>
+      <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+        <li><%= link_to "Sair", sign_out_path, method: "delete" %></li>
+      <% else %>
+        <li><%= link_to "Entrar", sign_in_path %></li>
+      <% end %>
+      </ul>
   </div>
 </nav>
