@@ -1,7 +1,5 @@
 var SEARCH = SEARCH || {}
 
-var count = 0
-
 SEARCH.setAutocompletes = function setAutocompletes(){
   SEARCH.setAutocompleteStudent();
   SEARCH.setAutocompleteTeacher();
@@ -128,7 +126,7 @@ SEARCH.addStudentTable = function addStudentTable(student){
     nis_number = student.nis_number || "";
     school_class_number = student.school_class ? student.school_class.number : "";
     $("#table-students").append(' <tr>\
-                                    <input type="hidden" class="student_id" name="students_ids['+count+']" value="'+student.id+'">\
+                                    <input type="hidden" class="student_id" name="students_ids['+student.id+']" value="'+student.id+'">\
                                     <td>'+student.person.name+'</td>\
                                     <td>'+student.person.genre+'</td>\
                                     <td>'+nis_number+'</td>\
@@ -136,7 +134,6 @@ SEARCH.addStudentTable = function addStudentTable(student){
                                     <td><a class="glyphicon glyphicon-remove remove-row">Remover</a></td>\
                                   </tr>'
                                 );
-    count++
   }
   SEARCH.eventRemoveRowTable();
 }
@@ -149,8 +146,8 @@ SEARCH.addStudentKinshipTable = function addStudentKinshipTable(student){
     nis_number = student.nis_number || "";
     school_class_number = student.school_class ? student.school_class.number : "";
     $("#table-kinships").append(' <tr>\
-                                    <input type="hidden" class="student_id" name="students_ids['+count+']" value="'+student.id+'">\
-                                    <td><input class="form-control" placeholder="Exemplo: Pai/Filha" type="text" name="kinships['+count+']" ></td>\
+                                    <input type="hidden" class="student_id" name="students_ids['+student.id+']" value="'+student.id+'">\
+                                    <td><input class="form-control" placeholder="Exemplo: Pai/Filha" type="text" name="kinships['+student.id+']" ></td>\
                                     <td>'+student.person.name+'</td>\
                                     <td>'+student.person.genre+'</td>\
                                     <td>'+nis_number+'</td>\
@@ -158,7 +155,6 @@ SEARCH.addStudentKinshipTable = function addStudentKinshipTable(student){
                                     <td><a class="glyphicon glyphicon-remove remove-row">Remover</a></td>\
                                   </tr>'
                                 );
-    count++
   }
   SEARCH.eventRemoveRowTable();
 }
@@ -169,8 +165,8 @@ SEARCH.addGuardianKinshipTable = function addGuardianKinshipTable(guardian){
   });
   if(identical_guardians.length == 0){
     $("#table-kinships").append(' <tr>\
-                                    <input type="hidden" class="guardian_id" name="guardians_ids['+count+']" value="'+guardian.id+'">\
-                                    <td><input class="form-control" placeholder="Exemplo: Pai/Filha" type="text" name="kinships['+count+']" ></td>\
+                                    <input type="hidden" class="guardian_id" name="guardians_ids['+guardian.id+']" value="'+guardian.id+'">\
+                                    <td><input class="form-control" placeholder="Exemplo: Pai/Filha" type="text" name="kinships['+guardian.id+']" ></td>\
                                     <td>'+guardian.person.name+'</td>\
                                     <td>'+guardian.person.genre+'</td>\
                                     <td>'+guardian.person.phone+'</td>\
@@ -178,7 +174,6 @@ SEARCH.addGuardianKinshipTable = function addGuardianKinshipTable(guardian){
                                     <td><a class="glyphicon glyphicon-remove remove-row">Remover</a></td>\
                                   </tr>'
                                 );
-    count++
   }
   SEARCH.eventRemoveRowTable();
 }
@@ -191,7 +186,7 @@ SEARCH.addTeacherTable = function addTeacherTable(teacher){
     subject = teacher.subject || "";
     time_load = teacher.time_load || "";
     $("#table-teachers").append(' <tr>\
-                                    <input type="hidden" class="teacher_id" name="teachers_ids['+count+']" value="'+teacher.id+'">\
+                                    <input type="hidden" class="teacher_id" name="teachers_ids['+teacher.id+']" value="'+teacher.id+'">\
                                     <td>'+teacher.person.name+'</td>\
                                     <td>'+subject+'</td>\
                                     <td>'+teacher.registration_number+'</td>\
@@ -199,7 +194,6 @@ SEARCH.addTeacherTable = function addTeacherTable(teacher){
                                     <td><a class="glyphicon glyphicon-remove remove-row">Remover</a></td>\
                                   </tr>'
                                 );
-    count++
   }
   SEARCH.eventRemoveRowTable();
 }
@@ -210,14 +204,13 @@ SEARCH.addSchoolClassTable = function addSchoolClassTable(school_class){
   });
   if(identical_school_classes.length == 0){
     $("#table-school_classes").append(' <tr>\
-                                    <input type="hidden" class="school_class_id" name="school_classes_ids['+count+']" value="'+school_class.id+'">\
+                                    <input type="hidden" class="school_class_id" name="school_classes_ids['+school_class.id+']" value="'+school_class.id+'">\
                                     <td>'+school_class.number+'</td>\
                                     <td>'+school_class.classroom+'</td>\
                                     <td>'+school_class.grade+'</td>\
                                     <td><a class="glyphicon glyphicon-remove remove-row">Remover</a></td>\
                                   </tr>'
                                 );
-    count++
   }
   SEARCH.eventRemoveRowTable();
 }
